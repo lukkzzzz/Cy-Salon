@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Cy Salon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-zinc-800 font-sans">
+
+  <nav class="relative w-full bg-zinc-600 text-white p-6 md:flex block items-center justify-between shadow-lg">
+    <div class="flex items-center justify-between md:w-auto w-full">
+      <h4 class="text-2xl font-extrabold tracking-wide">Cy Salon</h4>
+      <button id="menu-toggle" class="border p-2 rounded md:hidden block border-gray-300 bg-white text-zinc-600" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+    </div>
+    <ul id="menu" class="hidden md:flex md:items-center md:space-x-8 md:mt-0 mt-4 font-medium text-lg">
+      <li><a href="index.html" class="hover:text-gray-300 transition">Home</a></li>
+      <li><a href="aboutUs.html" class="hover:text-gray-300 transition">About Us</a></li>
+      <li><a href="customerService.html" class="hover:text-gray-300 transition">Services</a></li>
+      <li><a href="#" class="hover:text-gray-300 transition">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="px-6 py-20 max-w-6xl mx-auto text-center">
+    <h1 class="text-5xl font-extrabold mb-6 text-zinc-700">About Cy Salon</h1>
+    <p class="text-lg text-zinc-600 max-w-3xl mx-auto leading-relaxed">
+      At Cy Salon, we believe a haircut is more than just style – it’s confidence, personality, and tradition. Since opening our doors, we’ve combined classic barbering with modern trends, ensuring every client leaves looking sharp and feeling their best.
+    </p>
+  </section>
+
+  <section class="bg-zinc-50 py-20 border-t border-b border-zinc-200">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-4xl font-bold mb-6 text-zinc-700">Our History</h2>
+        <p class="text-zinc-600 leading-relaxed text-lg">
+          Established in 2010, Cy Salon began as a small neighborhood barbershop with a big dream: to bring back the artistry of grooming. Over the years, we’ve grown into a trusted spot for modern gentlemen, while keeping our roots in traditional barbering.
+        </p>
+      </div>
+      <img src="https://images.pexels.com/photos/897271/pexels-photo-897271.jpeg" alt="Barbershop history" class="rounded-xl shadow-xl">
+    </div>
+  </section>
+
+  <section class="py-20 max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-14 text-center text-zinc-700">Meet the Team</h2>
+    <div class="grid md:grid-cols-3 gap-10 text-center">
+      <div class="p-8 bg-white rounded-2xl shadow hover:shadow-2xl transition duration-300">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Barber" class="w-28 h-28 mx-auto rounded-full mb-6 border-4 border-zinc-200">
+        <h3 class="font-bold text-2xl mb-2">Cy Laugo</h3>
+        <p class="text-zinc-600">Master Barber</p>
+      </div>
+      <div class="p-8 bg-white rounded-2xl shadow hover:shadow-2xl transition duration-300">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Stylist" class="w-28 h-28 mx-auto rounded-full mb-6 border-4 border-zinc-200">
+        <h3 class="font-bold text-2xl mb-2">Myles Pangilinan</h3>
+        <p class="text-zinc-600">Hair Stylist</p>
+      </div>
+      <div class="p-8 bg-white rounded-2xl shadow hover:shadow-2xl transition duration-300">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Barber" class="w-28 h-28 mx-auto rounded-full mb-6 border-4 border-zinc-200">
+        <h3 class="font-bold text-2xl mb-2">Thad Toledo</h3>
+        <p class="text-zinc-600">Fade Specialist</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-zinc-600 text-white py-6 text-center">
+    <p class="text-lg">&copy; 2025 Cy Salon. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const menuButton = document.querySelector("#menu-toggle");
+      const menu = document.querySelector("#menu");
+      menuButton.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    });
+  </script>
+</body>
+</html>

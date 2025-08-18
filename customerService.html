@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Service | Cy Salon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-zinc-800 font-sans">
+
+  <nav class="relative w-full bg-zinc-700 text-white px-6 py-4 flex items-center justify-between shadow-lg">
+    <h4 class="text-2xl font-bold tracking-wide">Cy Salon</h4>
+    <button id="menu-toggle" class="border p-2 rounded md:hidden block border-gray-400">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5">
+        <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+      </svg>
+    </button>
+    <ul id="menu" class="hidden md:flex md:space-x-8 text-lg font-medium">
+      <li><a href="index.html" class="hover:text-gray-300 transition">Home</a></li>
+      <li><a href="aboutUs.html" class="hover:text-gray-300 transition">About Us</a></li>
+      <li><a href="customerService.html" class="hover:text-gray-300 transition">Services</a></li>
+      <li><a href="#" class="hover:text-gray-300 transition">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="px-6 py-20 text-center bg-gradient-to-r from-zinc-100 to-zinc-50">
+    <h1 class="text-5xl font-extrabold text-zinc-800 mb-6">Customer Service</h1>
+    <p class="text-lg text-zinc-600 max-w-2xl mx-auto leading-relaxed">
+      Need help? Find answers in our FAQs, send us an email, or share your feedback—we’re here to make your experience better.
+    </p>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-zinc-800 mb-8 text-center">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      <div class="border rounded-lg shadow-sm">
+        <button class="faq-toggle w-full text-left p-5 font-semibold flex justify-between items-center text-lg">
+          What are your salon hours? 
+          <span class="text-xl">+</span>
+        </button>
+        <div class="faq-content hidden p-5 text-zinc-600 leading-relaxed">
+          Our salon is open from 9:00 AM – 8:00 PM, Monday to Sunday.
+        </div>
+      </div>
+      <div class="border rounded-lg shadow-sm">
+        <button class="faq-toggle w-full text-left p-5 font-semibold flex justify-between items-center text-lg">
+          Do you accept walk-ins? 
+          <span class="text-xl">+</span>
+        </button>
+        <div class="faq-content hidden p-5 text-zinc-600 leading-relaxed">
+          Yes, we accept walk-ins but recommend booking in advance for guaranteed slots.
+        </div>
+      </div>
+      <div class="border rounded-lg shadow-sm">
+        <button class="faq-toggle w-full text-left p-5 font-semibold flex justify-between items-center text-lg">
+          What services do you offer? 
+          <span class="text-xl">+</span>
+        </button>
+        <div class="faq-content hidden p-5 text-zinc-600 leading-relaxed">
+          We offer haircuts, beard trims, hair coloring, and grooming packages.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-zinc-50 py-20 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl font-bold text-zinc-800 mb-6">Contact Us</h2>
+        <p class="text-zinc-600 mb-6 leading-relaxed">We’d love to hear from you. Reach out to us through any of the options below:</p>
+        <p class="font-medium text-lg text-zinc-800">📞 Call us: <span class="text-zinc-600">+63 912 345 6789</span></p>
+        <p class="font-medium text-lg text-zinc-800 mt-3">📧 Email us: <span class="text-zinc-600">support@cysalon.com</span></p>
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold text-zinc-800 mb-6">Email Contact Form</h3>
+        <form class="space-y-4">
+          <input type="text" placeholder="Your Name" class="w-full border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-zinc-400">
+          <input type="email" placeholder="Your Email" class="w-full border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-zinc-400">
+          <textarea placeholder="Your Message" rows="4" class="w-full border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-zinc-400"></textarea>
+          <button type="submit" class="bg-zinc-700 text-white px-6 py-3 rounded-lg hover:bg-zinc-600 transition">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-6 py-20">
+    <h2 class="text-3xl font-bold text-zinc-800 mb-8 text-center">Feedback Form</h2>
+    <form class="space-y-5">
+      <input type="text" placeholder="Full Name" class="w-full border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-zinc-400">
+      <input type="email" placeholder="Email Address" class="w-full border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-zinc-400">
+      <select class="w-full border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-zinc-400">
+        <option>Service Quality</option>
+        <option>Staff Friendliness</option>
+        <option>Pricing</option>
+        <option>Overall Experience</option>
+      </select>
+      <textarea placeholder="Your Feedback" rows="5" class="w-full border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-zinc-400"></textarea>
+      <button type="submit" class="bg-zinc-700 text-white px-6 py-3 rounded-lg hover:bg-zinc-600 transition">
+        Submit Feedback
+      </button>
+    </form>
+  </section>
+
+  <footer class="bg-zinc-700 text-white text-center py-6 mt-10">
+    <p class="text-sm">&copy; 2025 Cy Salon. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const menuButton = document.querySelector("#menu-toggle");
+      const menu = document.querySelector("#menu");
+      menuButton.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
+      const faqToggles = document.querySelectorAll(".faq-toggle");
+      faqToggles.forEach(toggle => {
+        toggle.addEventListener("click", () => {
+          const content = toggle.nextElementSibling;
+          content.classList.toggle("hidden");
+          toggle.querySelector("span").textContent =
+            content.classList.contains("hidden") ? "+" : "-";
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
