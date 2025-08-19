@@ -26,44 +26,122 @@
 					<li>
 						<a href="services.html">Services</a>
 					</li>
-					<li><a href="services.html">About</a></li>
+					<li>
+						<a href="services.html">About</a>
+					</li>
 					<li>Contact</li>
 				</ul>
 			</nav>
 			<div class="relative py-24 text-center text-white">
 				<h1 class="text-6xl font-bold">Our Services</h1>
-				<p class="text-lg mt-2">Premium salon care designed just for you</p>
+				<p class="text-lg mt-2">Walk with confidence</p>
 			</div>
 		</header>
 		<main class="max-w-7xl mx-auto p-6 my-16">
 			<h2 class="text-center text-4xl font-medium mb-4">Types of Services</h2>
 			<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
-				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden">
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
 					<img src="https://i.pinimg.com/736x/a9/d8/54/a9d854afc173609accc243db58ac32a2.jpg" alt="" class="w-full h-56 object-cover">
 					<div class="p-4 space-y-2">
 						<h3 class="font-semibold text-xl">Hair</h3>
-						<p class="text-gray-600">Haircut, Haircut with shampoo & blowdry, and Head Shave </p>
-						<p class="text-lg font-bold">₱500 - ₱1200</p>
+						<button @click="open = !open" class="flex items-center justify-between w-full text-left text-gray-700 font-medium hover:text-black">
+							<span>View Services</span>
+							<svg :class="{'rotate-180': open}" class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+							</svg>
+						</button>
+						<div x-show="open" x-transition class="mt-2 text-gray-600 space-y-1">
+							<p>- Haircut</p>
+							<p>- Haircut with Shampoo & Blowdry</p>
+							<p>- Head Shave</p>
+						</div>
+						<p class="text-lg font-bold mt-3">₱500 - ₱1200</p>
 					</div>
 				</div>
-				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden">
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
 					<img src="https://i.pinimg.com/736x/f1/1b/81/f11b81f5a3c5906716bfcdeac75a0d6d.jpg" alt="" class="w-full h-56 object-cover">
 					<div class="p-4 space-y-2">
 						<h3 class="font-semibold text-xl">Hair Styling</h3>
-						<p class="text-gray-600">All types of hair coloring, Hair Art, Rebond, & Iron</p>
-						<p class="text-lg font-bold">₱650 - ₱2000</p>
+						<button @click="open = !open" class="flex items-center justify-between w-full text-left text-gray-700 font-medium hover:text-black">
+							<span>View Services</span>
+							<svg :class="{'rotate-180': open}" class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+							</svg>
+						</button>
+						<div x-show="open" x-transition class="mt-2 text-gray-600 space-y-1">
+							<p>- Hair Coloring</p>
+							<p>- Hair Art</p>
+							<p>- Hair Rebond</p>
+							<p>- Hair Iron/Styling</p>
+						</div>
+						<p class="text-lg font-bold mt-3">₱650 - ₱2000</p>
 					</div>
 				</div>
-				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden">
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
 					<img src="https://i.pinimg.com/736x/ae/c9/a5/aec9a5143b18bfdbd61bfb17810c3a3d.jpg" alt="" class="w-full h-56 object-cover">
 					<div class="p-4 space-y-2">
 						<h3 class="font-semibold text-xl">Grooming</h3>
-						<p class="text-gray-600">Beard/Mustache Full Shave, Beard/Mustache Trim, Mustache Art, Threading (eyebrows), Facial Hair Waxing</p>
-						<p class="text-lg font-bold">₱600 - ₱950</p>
+						<button @click="open = !open" class="flex items-center justify-between w-full text-left text-gray-700 font-medium hover:text-black">
+							<span>View Services</span>
+							<svg :class="{'rotate-180': open}" class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+							</svg>
+						</button>
+						<div x-show="open" x-transition class="mt-2 text-gray-600 space-y-1">
+							<p>- Beard/Mustache Full Shave</p>
+							<p>- Beard/Mustache Trim</p>
+							<p>- Mustache Art</p>
+							<p>- Threading (eyebrows)</p>
+							<p>- Facial Hair Waxing</p>
+						</div>
+						<p class="text-lg font-bold mt-3">₱600 - ₱950</p>
 					</div>
 				</div>
 			</div>
-			</div>
+			<section class="max-w-xl mx-auto p-6 my-20">
+				<h2 class="text-center text-4xl font-medium mb-6">Our Works</h2>
+				<div x-data="{ current: 0, images: [
+          'https://i.pinimg.com/736x/e1/e4/95/e1e495228e9be6fcb4b6af93c17dcf74.jpg',
+          'https://i.pinimg.com/1200x/f7/7d/be/f77dbec595b2bc7713af8affe66d2b19.jpg',
+          'https://i.pinimg.com/736x/26/c0/f8/26c0f8c48efc1c2f54c21678ba0690d3.jpg',
+          'https://i.pinimg.com/1200x/93/14/13/931413f158992fe02669fd45181d4859.jpg'
+        ] }" x-init="setInterval(() => { current = (current + 1) % images.length }, 4000)" class="relative w-full max-w-7xl mx-auto">
+					<div class="overflow-hidden rounded-2xl shadow-lg">
+						<template x-for="(image, index) in images" :key="index">
+							<div x-show="current === index" x-transition>
+								<img :src="image" class="w-full h-[500px] object-cover" alt="Showcase Work">
+							</div>
+						</template>
+					</div>
+					<button @click="current = (current - 1 + images.length) % images.length" class="absolute top-1/2 left-3 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70"> &#10094; </button>
+					<button @click="current = (current + 1) % images.length" class="absolute top-1/2 right-3 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70"> &#10095; </button>
+					<div class="flex justify-center mt-4 space-x-2">
+						<template x-for="(image, index) in images" :key="index">
+							<button class="w-3 h-3 rounded-full" :class="current === index ? 'bg-black' : 'bg-gray-400'" @click="current = index"></button>
+						</template>
+					</div>
+				</div>
+			</section>
+			<section class="max-w-5xl mx-auto my-20 px-6">
+				<h2 class="text-center text-4xl font-medium mb-12">What Our Clients Say</h2>
+				<div class="grid md:grid-cols-3 gap-8">
+					<div class="bg-white shadow-sm rounded-2xl p-6 text-center">
+						<p class="text-gray-600 italic">"Best fade I've ever had! The barber really knows his craft."</p>
+						<div class="mt-4 font-semibold">– Mark D.</div>
+						<div class="text-yellow-400 mt-2">★★★★★</div>
+					</div>
+					<div class="bg-white shadow-sm rounded-2xl p-6 text-center">
+						<p class="text-gray-600 italic">"Clean shop, great vibe, and my beard trim was perfect!"</p>
+						<div class="mt-4 font-semibold">– James R.</div>
+						<div class="text-yellow-400 mt-2">★★★★★</div>
+					</div>
+					<div class="bg-white shadow-sm rounded-2xl p-6 text-center">
+						<p class="text-gray-600 italic">"I always come here before big meetings. They make me look sharp."</p>
+						<div class="mt-4 font-semibold">– Carlo P.</div>
+						<div class="text-yellow-400 mt-2">★★★★★</div>
+					</div>
+				</div>
+			</section>
 		</main>
 		<script src="//unpkg.com/alpinejs" defer></script>
 	</body>
