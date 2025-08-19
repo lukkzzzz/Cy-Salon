@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cy Salon - Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="fonts.css">
+</head>
+<body class="font-rubik bg-gray-50">
+  <header class="relative bg-[url('https://i.pinimg.com/736x/cc/2b/0d/cc2b0d09bb0d70e0cb72567d6671bc3d.jpg')] bg-center bg-cover">
+    <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
+    <nav class="relative w-full text-white p-6 md:flex block items-center justify-between" x-data="{open: false}">
+      <div class="flex items-center justify-between md:w-auto w-full">
+        <h4 class="text-xl">Cy Salon</h4>
+        <button class="border p-2 rounded md:hidden block border-gray-500" @click="open = !open" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+            <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+      <ul class="md:flex md:items-center md:space-x-4 md:mt-0 mt-4 md:space-y-0 space-y-2" :class="{'hidden': !open}">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+    <div class="relative py-24 text-center text-white">
+      <h1 class="text-6xl font-bold">Our Services</h1>
+      <p class="text-lg mt-2">Premium salon care designed just for you</p>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-6 my-16">
+    <h2>Types of Services:</h2>
+    <div class="grid md:grid-cols-3 grid-cols-1 gap-6">
+
+      <div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden">
+        <img src="https://i.pinimg.com/736x/a9/d8/54/a9d854afc173609accc243db58ac32a2.jpg" alt="" class="w-full h-56 object-cover">
+        <div class="p-4 space-y-2">
+          <h3 class="font-semibold text-xl">Hair</h3>
+          <p class="text-gray-600">Haircut, Haircut with shampoo & blowdry, and Head Shave </p>
+          <p class="text-lg font-bold">₱500 - ₱1200</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden">
+        <img src="https://i.pinimg.com/736x/f1/1b/81/f11b81f5a3c5906716bfcdeac75a0d6d.jpg" alt="" class="w-full h-56 object-cover">
+        <div class="p-4 space-y-2">
+          <h3 class="font-semibold text-xl">Hair Styling</h3>
+          <p class="text-gray-600">All types of hair coloring, Hair Art, Rebond, & Iron</p>
+          <p class="text-lg font-bold">₱650 - ₱2000</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden">
+        <img src="https://i.pinimg.com/736x/ae/c9/a5/aec9a5143b18bfdbd61bfb17810c3a3d.jpg" alt="" class="w-full h-56 object-cover">
+        <div class="p-4 space-y-2">
+          <h3 class="font-semibold text-xl">Grooming</h3>
+          <p class="text-gray-600">Beard/Mustache Full Shave, Beard/Mustache Trim, Mustache Art, Threading (eyebrows), Facial Hair Waxing</p>
+          <p class="text-lg font-bold">₱600 - ₱950</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="//unpkg.com/alpinejs" defer></script>
+</body>
+</html>
