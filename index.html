@@ -10,7 +10,7 @@
 	<body class="font-rubik bg-gray-50">
 		<header class="relative bg-[url('https://img.freepik.com/free-photo/hairdresser-spraying-clients-hair_23-2148298274.jpg?t=st=1755164422~exp=1755168022~hmac=33ca817b205e88818ffd61bfe3064cd08601dc59c78cb7eb677cc210ba38872d&w=1480')] bg-bottom bg-cover">
 			<div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-			<nav class="relative w-full text-white p-6 md:flex block items-center justify-between" x-data="{open: true}">
+			<nav class="relative w-full text-white p-6 md:flex block items-center justify-between" x-data="{open: false}">
 				<div class="flex items-center justify-between md:w-auto w-full">
 					<h4 class="text-xl">Cy Salon</h4>
 					<button class="border p-2 rounded md:hidden block border-gray-500" @click="open = !open" aria-label="Toggle menu">
@@ -19,7 +19,7 @@
 						</svg>
 					</button>
 				</div>
-				<ul id="menu" class="md:flex md:space-x-8 text-lg font-medium md:space-y-0 space-y-2 md:mt-0 mt-4" :class="{'hidden': !open}">
+				<ul id="menu" class="md:flex md:space-x-4 md:space-y-0 space-y-2 md:mt-0 mt-4" :class="{'hidden': !open}">
 					<li>
                         <a href="index.html">Home</a>
                     </li>
@@ -40,8 +40,8 @@
 			<div class="relative py-32" id="content">
 				<div class="max-w-7xl mx-auto text-white">
 					<div class="space-y-4 p-4 md:w-full max-w-4xl">
-						<h1 class="text-6xl font-bold">This is the website hero title</h1>
-						<p class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia praesentium molestias reprehenderit eaque natus.</p>
+						<h1 class="text-6xl font-bold">Your Grooming, Your Schedule</h1>
+						<p class="text-lg">Book your appointment and experience the perfect cut. </p>
 						<div class="flex items-center space-x-2">
 							<button class="bg-zinc-700 hover:bg-zinc-800 ease duration-200 text-lg text-white px-6 py-2 rounded-full flex items-center space-x-2">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
