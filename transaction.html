@@ -15,7 +15,7 @@
 					<h4 class="text-xl">Cy Salon</h4>
 					<button class="border p-2 rounded md:hidden block border-gray-500" @click="open = !open" aria-label="Toggle menu">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
-							<path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+							<path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 15.25Z" clip-rule="evenodd" />
 						</svg>
 					</button>
 				</div>
@@ -24,16 +24,13 @@
 						<a href="index.html">Home</a>
 					</li>
 					<li>
+						<a href="products.html">Products</a>
+					</li>
+					<li>
 						<a href="aboutUs.html">About Us</a>
 					</li>
 					<li>
 						<a href="services.html">Services</a>
-					</li>
-					<li>
-						<a href="customerService.html">Customer Care</a>
-					</li>
-					<li>
-						<a href="booking.html">Book Now</a>
 					</li>
 				</ul>
 			</nav>
@@ -103,7 +100,7 @@
 							<span>Subtotal</span>
 							<span id="subtotal">₱0.00</span>
 						</div>
-						<!-- Discount Row (hidden until applied) -->
+						<!-- Discount Row -->
 						<div id="discount-row" class="flex justify-between text-green-700 hidden">
 							<span id="discountLabel">Discount</span>
 							<span id="discountAmount">-₱0.00</span>
@@ -120,19 +117,24 @@
 			</div>
 		</main>
 		<script>
+			// ---------------- Voucher Data ----------------
 			const vouchers = [{
 					code: "SHAVE20",
 					discount: "20"
-				},
-				{
-					code: "GUPIT35",
-					discount: "35"
-				},
+				}, // % off
 				{
 					code: "AHIT50",
 					discount: "50"
+				}, // % off
+				{ // Conditional: buy 2 of product 305, get 50% off those 2 items
+					code: "BUY2GET305HALF",
+					type: "conditional",
+					productId: 305,
+					requiredQty: 2,
+					discountPercent: 50
 				}
 			];
+			// ---------------- Helpers ----------------
 			const peso = new Intl.NumberFormat('en-PH', {
 				style: 'currency',
 				currency: 'PHP',
@@ -186,8 +188,10 @@
 				const code = normalizeCode(inputCode);
 				return vouchers.find(v => normalizeCode(v.code) === code) || null;
 			}
+			// ---------------- State & Elements ----------------
 			let cart = loadCart();
-			let appliedVoucher = parseStored('appliedVoucher'); 
+			// Back-compat: if an older appliedVoucher (only code/discount) exists, we’ll still use it
+			let appliedVoucher = parseStored('appliedVoucher');
 			const cartDiv = document.getElementById("cart");
 			const subtotalEl = document.getElementById("subtotal");
 			const totalEl = document.getElementById("total");
@@ -201,7 +205,7 @@
 			const discountRow = document.getElementById('discount-row');
 			const discountLabel = document.getElementById('discountLabel');
 			const discountAmountEl = document.getElementById('discountAmount');
-
+			// ---------------- Calculations ----------------
 			function computeSubtotal() {
 				return cart.reduce((sum, item) => {
 					const line = (Number(item.price) || 0) * (Number(item.qty) || 0);
@@ -211,8 +215,27 @@
 
 			function computeDiscount(subtotal) {
 				if (!appliedVoucher) return 0;
-				const pct = Number(appliedVoucher.discount) || 0;
-				return Math.max(0, subtotal * (pct / 100));
+				// If the voucher in storage is only code/discount, treat as percentage
+				if (!appliedVoucher.type) {
+					const pct = Number(appliedVoucher.discount) || 0;
+					return Math.max(0, subtotal * (pct / 100));
+				}
+				if (appliedVoucher.type === "conditional") {
+					const productId = Number(appliedVoucher.productId);
+					const requiredQty = Number(appliedVoucher.requiredQty) || 0;
+					const discountPct = Number(appliedVoucher.discountPercent) || 0;
+					const target = cart.find(i => Number(i.id) === productId);
+					const qty = target ? Number(target.qty) : 0;
+					const price = target ? Number(target.price) : 0;
+					if (target && qty >= requiredQty) {
+						// Number of items eligible (in blocks of requiredQty)
+						const discountedItems = Math.floor(qty / requiredQty) * requiredQty;
+						const discount = (price * discountedItems) * (discountPct / 100);
+						return Math.max(0, discount);
+					}
+					return 0;
+				}
+				return 0;
 			}
 
 			function computeTotals() {
@@ -225,18 +248,26 @@
 					total
 				};
 			}
-
 			function renderVoucherUI(subtotal) {
 				voucherFeedback.textContent = '';
 				voucherFeedback.className = 'text-sm';
 				if (appliedVoucher) {
-					const pct = Number(appliedVoucher.discount) || 0;
-					activeVoucherTxt.textContent = `Applied voucher: ${appliedVoucher.code} (${pct}% off)`;
+					if (appliedVoucher.type === "conditional") {
+						const pct = Number(appliedVoucher.discountPercent) || 0;
+						activeVoucherTxt.textContent = `Applied voucher: ${appliedVoucher.code}`;
+						const discount = computeDiscount(subtotal);
+						discountLabel.textContent = `Discount (${appliedVoucher.code})`;
+						discountAmountEl.textContent = '-' + formatPHP(discount);
+						discountRow.classList.remove('hidden');
+					} else {
+						const pct = Number(appliedVoucher.discount) || 0;
+						activeVoucherTxt.textContent = `Applied voucher: ${appliedVoucher.code} (${pct}% off)`;
+						const discount = computeDiscount(subtotal);
+						discountLabel.textContent = `Discount (${appliedVoucher.code} - ${pct}%)`;
+						discountAmountEl.textContent = '-' + formatPHP(discount);
+						discountRow.classList.remove('hidden');
+					}
 					activeVoucherBox.classList.remove('hidden');
-					const discount = computeDiscount(subtotal);
-					discountLabel.textContent = `Discount (${appliedVoucher.code} - ${pct}%)`;
-					discountAmountEl.textContent = '-' + formatPHP(discount);
-					discountRow.classList.remove('hidden');
 					voucherInput.value = appliedVoucher.code;
 					voucherInput.disabled = true;
 					applyVoucherBtn.disabled = true;
@@ -255,9 +286,9 @@
 				let totalQty = 0;
 				if (!cart.length) {
 					cartDiv.innerHTML = `
-          
+            
 							<div class="py-6 text-center text-gray-500">Your cart is empty.</div>
-        `;
+          `;
 					subtotalEl.textContent = formatPHP(0);
 					totalEl.textContent = formatPHP(0);
 					countEl.textContent = `(0 items)`;
@@ -272,7 +303,7 @@
 					const lineTotal = (Number(item.price) || 0) * (Number(item.qty) || 0);
 					totalQty += Number(item.qty) || 0;
 					cartDiv.innerHTML += `
-          
+            
 							<div class="flex justify-between items-center py-2 border-b">
 								<div>
 									<p class="font-semibold">${item.name}</p>
@@ -286,7 +317,7 @@
 									<button onclick="removeItem(${item.id})" class="text-red-600 hover:underline" title="Remove">✕</button>
 								</div>
 							</div>
-        `;
+          `;
 				});
 				const {
 					subtotal,
@@ -297,8 +328,10 @@
 				totalEl.textContent = formatPHP(total);
 				countEl.textContent = `(${totalQty} ${totalQty === 1 ? 'item' : 'items'})`;
 				renderVoucherUI(subtotal);
+				// Persist cart on every render
 				saveCart(cart);
 			}
+			// ---------------- Actions ----------------
 			window.updateQty = function(id, change) {
 				const idx = cart.findIndex(i => Number(i.id) === Number(id));
 				if (idx === -1) return;
@@ -318,8 +351,9 @@
 				localStorage.removeItem('appliedVoucher');
 				renderCart();
 			});
-			applyVoucherBtn.addEventListener('click', () => {
-				const code = normalizeCode(voucherInput.value);
+			// Apply voucher (FIXED: save entire voucher object)
+			document.getElementById('apply-voucher').addEventListener('click', () => {
+				const code = normalizeCode(document.getElementById('voucher_code').value);
 				if (!code) {
 					voucherFeedback.textContent = 'Please enter a voucher code.';
 					voucherFeedback.classList.add('text-red-600');
@@ -331,9 +365,9 @@
 					voucherFeedback.classList.add('text-red-600');
 					return;
 				}
+				// ✅ Save the full voucher object so conditional fields aren't lost
 				appliedVoucher = {
-					code: match.code,
-					discount: match.discount
+					...match
 				};
 				localStorage.setItem('appliedVoucher', JSON.stringify(appliedVoucher));
 				voucherFeedback.textContent = 'Voucher applied!';
@@ -341,16 +375,18 @@
 				voucherFeedback.classList.add('text-green-700');
 				renderCart();
 			});
-			removeVoucherBtn.addEventListener('click', (e) => {
+			// Remove voucher
+			document.getElementById('remove-voucher').addEventListener('click', (e) => {
 				e.preventDefault();
 				appliedVoucher = null;
 				localStorage.removeItem('appliedVoucher');
 				voucherFeedback.textContent = 'Voucher removed.';
 				voucherFeedback.classList.remove('text-red-600');
 				voucherFeedback.classList.add('text-gray-600');
-				voucherInput.value = '';
+				document.getElementById('voucher_code').value = '';
 				renderCart();
 			});
+			// ---------------- Initial Paint ----------------
 			renderCart();
 		</script>
 	</body>
