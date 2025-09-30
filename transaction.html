@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Checkout - Cy Salon</title>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<link rel="stylesheet" href="fonts.css">
@@ -44,38 +44,48 @@
 		<main class="max-w-7xl mx-auto p-6 my-16 space-y-8">
 			<h4 class="text-2xl font-medium">Your Cart</h4>
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<!-- Cart + Voucher -->
 				<div class="md:col-span-2 space-y-4">
 					<div class="bg-white p-4 rounded shadow pb-4">
 						<div class="flex justify-between items-center mb-4">
-							<h2 class="text-xl font-bold">Cart <span id="cart-count"></span>
+							<h2 class="text-xl font-bold">Cart <span id="cart-count" class="text-gray-500 font-normal"></span>
 							</h2>
-							<button id="clear" class="text-red-500 text-sm">Clear cart</button>
+							<button id="clear" class="text-red-600 text-sm hover:underline">Clear cart</button>
 						</div>
 						<div id="cart"></div>
 					</div>
-					<div class="flex items-center space-x-4">
-						<input type="text" name="" id="voucher_code" class="border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600">
-						<button class="bg-zinc-800 text-white hover:bg-zinc-900 ease duration-200 text-center px-2 py-1 rounded">Add Voucher</button>
+					<!-- Voucher -->
+					<div class="space-y-3">
+						<div class="flex items-center gap-3">
+							<input type="text" id="voucher_code" placeholder="Enter voucher code" class="border rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-zinc-600" />
+							<button id="apply-voucher" class="bg-zinc-800 text-white hover:bg-zinc-900 ease duration-200 px-4 py-2 rounded"> Apply Voucher </button>
+						</div>
+						<p id="voucher_feedback" class="text-sm"></p>
+						<div id="active_voucher" class="hidden text-sm text-green-700 bg-green-50 border border-green-200 rounded px-3 py-2">
+							<span id="active_voucher_text"></span>
+							<button id="remove-voucher" class="ml-3 text-green-700 underline hover:no-underline">Remove</button>
+						</div>
 					</div>
 				</div>
+				<!-- Summary -->
 				<div class="space-y-8">
 					<div class="bg-white p-4 rounded shadow space-y-4">
 						<h3 class="text-lg font-bold">Booking Information</h3>
 						<div>
 							<label for="name" class="text-sm font-medium text-gray-600">Full Name</label>
-							<input type="text" name="name" id="name" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
+							<input type="text" id="name" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
 						</div>
 						<div>
-							<label for="date" class="text-sm font-medium text-gray-600">Email</label>
-							<input type="email" name="email" id="email" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
+							<label for="email" class="text-sm font-medium text-gray-600">Email</label>
+							<input type="email" id="email" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
 						</div>
 						<div>
 							<label for="date" class="text-sm font-medium text-gray-600">Date</label>
-							<input type="date" name="date" id="date" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
+							<input type="date" id="date" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
 						</div>
 						<div>
 							<label for="time" class="text-sm font-medium text-gray-600">Time</label>
-							<select name="time" id="time" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
+							<select id="time" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
 								<option value="09-10">9:00AM - 10:00AM</option>
 								<option value="10-11">10:00AM - 11:00AM</option>
 								<option value="11-12">11:00AM - 12:00PM</option>
@@ -87,15 +97,20 @@
 							</select>
 						</div>
 					</div>
-					<div class="bg-white p-4 rounded shadow space-y-4">
+					<div class="bg-white p-4 rounded shadow space-y-3">
 						<h3 class="text-lg font-bold">Summary</h3>
 						<div class="flex justify-between">
 							<span>Subtotal</span>
-							<span id="subtotal">₱0</span>
+							<span id="subtotal">₱0.00</span>
+						</div>
+						<!-- Discount Row (hidden until applied) -->
+						<div id="discount-row" class="flex justify-between text-green-700 hidden">
+							<span id="discountLabel">Discount</span>
+							<span id="discountAmount">-₱0.00</span>
 						</div>
 						<div class="flex justify-between font-bold text-lg border-t pt-2">
 							<span>Total</span>
-							<span id="total">₱0</span>
+							<span id="total">₱0.00</span>
 						</div>
 						<div class="mt-2 flex justify-center">
 							<a href="#" class="w-full bg-zinc-800 text-white hover:bg-zinc-900 ease duration-200 text-center py-2 rounded"> Book Now </a>
@@ -105,7 +120,11 @@
 			</div>
 		</main>
 		<script>
-			// --- Helpers ---
+			const vouchers = [{
+					code: "SHAVE20",
+					discount: "20"
+				},
+			];
 			const peso = new Intl.NumberFormat('en-PH', {
 				style: 'currency',
 				currency: 'PHP',
@@ -118,28 +137,31 @@
 				return peso.format(num);
 			}
 
+			function parseStored(key, fallback = null) {
+				try {
+					return JSON.parse(localStorage.getItem(key) || 'null') ?? fallback;
+				} catch {
+					return fallback;
+				}
+			}
+
 			function loadCart() {
 				let cart = [];
-				try {
-					const savedCart = JSON.parse(localStorage.getItem('cart') || 'null');
-					if (Array.isArray(savedCart) && savedCart.length) {
-						cart = savedCart;
-					} else {
-						const selected = JSON.parse(localStorage.getItem('selectedProduct') || 'null');
-						if (selected && typeof selected === 'object') {
-							const normalized = {
-								id: Number(selected.id),
-								name: String(selected.name || 'Selected Item'),
-								price: Number(selected.price) || 0,
-								qty: Number(selected.qty) || 1,
-							};
-							cart = [normalized];
-							localStorage.setItem('cart', JSON.stringify(cart));
-						}
+				const savedCart = parseStored('cart');
+				if (Array.isArray(savedCart) && savedCart.length) {
+					cart = savedCart;
+				} else {
+					const selected = parseStored('selectedProduct');
+					if (selected && typeof selected === 'object') {
+						const normalized = {
+							id: Number(selected.id),
+							name: String(selected.name || 'Selected Item'),
+							price: Number(selected.price) || 0,
+							qty: Number(selected.qty) || 1,
+						};
+						cart = [normalized];
+						localStorage.setItem('cart', JSON.stringify(cart));
 					}
-				} catch (e) {
-					console.warn('Failed to parse stored cart:', e);
-					cart = [];
 				}
 				return cart;
 			}
@@ -147,60 +169,128 @@
 			function saveCart(cart) {
 				localStorage.setItem('cart', JSON.stringify(cart));
 			}
-			// --- State & Elements ---
-			let cart = loadCart(); // [{id, name, price, qty}]
+
+			function normalizeCode(s) {
+				return String(s || '').trim().toUpperCase();
+			}
+
+			function findVoucher(inputCode) {
+				const code = normalizeCode(inputCode);
+				return vouchers.find(v => normalizeCode(v.code) === code) || null;
+			}
+			let cart = loadCart();
+			let appliedVoucher = parseStored('appliedVoucher'); 
 			const cartDiv = document.getElementById("cart");
 			const subtotalEl = document.getElementById("subtotal");
 			const totalEl = document.getElementById("total");
 			const countEl = document.getElementById("cart-count");
-			// --- Render ---
+			const voucherInput = document.getElementById('voucher_code');
+			const applyVoucherBtn = document.getElementById('apply-voucher');
+			const voucherFeedback = document.getElementById('voucher_feedback');
+			const activeVoucherBox = document.getElementById('active_voucher');
+			const activeVoucherTxt = document.getElementById('active_voucher_text');
+			const removeVoucherBtn = document.getElementById('remove-voucher');
+			const discountRow = document.getElementById('discount-row');
+			const discountLabel = document.getElementById('discountLabel');
+			const discountAmountEl = document.getElementById('discountAmount');
+
+			function computeSubtotal() {
+				return cart.reduce((sum, item) => {
+					const line = (Number(item.price) || 0) * (Number(item.qty) || 0);
+					return sum + line;
+				}, 0);
+			}
+
+			function computeDiscount(subtotal) {
+				if (!appliedVoucher) return 0;
+				const pct = Number(appliedVoucher.discount) || 0;
+				return Math.max(0, subtotal * (pct / 100));
+			}
+
+			function computeTotals() {
+				const subtotal = computeSubtotal();
+				const discount = computeDiscount(subtotal);
+				const total = Math.max(0, subtotal - discount);
+				return {
+					subtotal,
+					discount,
+					total
+				};
+			}
+
+			function renderVoucherUI(subtotal) {
+				voucherFeedback.textContent = '';
+				voucherFeedback.className = 'text-sm';
+				if (appliedVoucher) {
+					const pct = Number(appliedVoucher.discount) || 0;
+					activeVoucherTxt.textContent = `Applied voucher: ${appliedVoucher.code} (${pct}% off)`;
+					activeVoucherBox.classList.remove('hidden');
+					const discount = computeDiscount(subtotal);
+					discountLabel.textContent = `Discount (${appliedVoucher.code} - ${pct}%)`;
+					discountAmountEl.textContent = '-' + formatPHP(discount);
+					discountRow.classList.remove('hidden');
+					voucherInput.value = appliedVoucher.code;
+					voucherInput.disabled = true;
+					applyVoucherBtn.disabled = true;
+					applyVoucherBtn.classList.add('opacity-60', 'cursor-not-allowed');
+				} else {
+					activeVoucherBox.classList.add('hidden');
+					discountRow.classList.add('hidden');
+					voucherInput.disabled = false;
+					applyVoucherBtn.disabled = false;
+					applyVoucherBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+				}
+			}
+
 			function renderCart() {
 				cartDiv.innerHTML = "";
-				let subtotal = 0;
 				let totalQty = 0;
 				if (!cart.length) {
 					cartDiv.innerHTML = `
-        
-										<div class="py-6 text-center text-gray-500">
-          Your cart is empty.
-        </div>
-      `;
+          
+							<div class="py-6 text-center text-gray-500">Your cart is empty.</div>
+        `;
 					subtotalEl.textContent = formatPHP(0);
 					totalEl.textContent = formatPHP(0);
 					countEl.textContent = `(0 items)`;
-					// ✅ Persist the empty state and clean up legacy key
-					saveCart(cart); // saves []
+					saveCart(cart);
 					localStorage.removeItem('selectedProduct');
+					appliedVoucher = null;
+					localStorage.removeItem('appliedVoucher');
+					renderVoucherUI(0);
 					return;
 				}
 				cart.forEach(item => {
 					const lineTotal = (Number(item.price) || 0) * (Number(item.qty) || 0);
-					subtotal += lineTotal;
 					totalQty += Number(item.qty) || 0;
 					cartDiv.innerHTML += `
-        
-										<div class="flex justify-between items-center py-2 border-b">
-											<div>
-												<p class="font-semibold">${item.name}</p>
-												<p class="text-sm text-gray-500">${formatPHP(item.price)}</p>
-											</div>
-											<div class="flex items-center space-x-2">
-												<button onclick="updateQty(${item.id}, -1)" class="px-2 border rounded">-</button>
-												<span>${item.qty}</span>
-												<button onclick="updateQty(${item.id}, 1)" class="px-2 border rounded">+</button>
-												<span class="font-bold min-w-28 text-right">${formatPHP(lineTotal)}</span>
-												<button onclick="removeItem(${item.id})" class="text-red-500" title="Remove">✕</button>
-											</div>
-										</div>
-      `;
+          
+							<div class="flex justify-between items-center py-2 border-b">
+								<div>
+									<p class="font-semibold">${item.name}</p>
+									<p class="text-sm text-gray-500">${formatPHP(item.price)}</p>
+								</div>
+								<div class="flex items-center space-x-2">
+									<button onclick="updateQty(${item.id}, -1)" class="px-2 border rounded">-</button>
+									<span>${item.qty}</span>
+									<button onclick="updateQty(${item.id}, 1)" class="px-2 border rounded">+</button>
+									<span class="font-bold min-w-28 text-right">${formatPHP(lineTotal)}</span>
+									<button onclick="removeItem(${item.id})" class="text-red-600 hover:underline" title="Remove">✕</button>
+								</div>
+							</div>
+        `;
 				});
+				const {
+					subtotal,
+					discount,
+					total
+				} = computeTotals();
 				subtotalEl.textContent = formatPHP(subtotal);
-				totalEl.textContent = formatPHP(subtotal); 
+				totalEl.textContent = formatPHP(total);
 				countEl.textContent = `(${totalQty} ${totalQty === 1 ? 'item' : 'items'})`;
-				// ✅ Persist on every render
+				renderVoucherUI(subtotal);
 				saveCart(cart);
 			}
-			// --- Actions (exposed to inline handlers) ---
 			window.updateQty = function(id, change) {
 				const idx = cart.findIndex(i => Number(i.id) === Number(id));
 				if (idx === -1) return;
@@ -210,17 +300,49 @@
 			};
 			window.removeItem = function(id) {
 				cart = cart.filter(i => Number(i.id) !== Number(id));
-				renderCart(); // will save [] and remove selectedProduct if empty
+				renderCart();
 			};
-			// Clear cart button
 			document.getElementById("clear").addEventListener("click", () => {
 				cart = [];
-				// Persist immediately so storage is clean even before render
 				saveCart(cart);
 				localStorage.removeItem('selectedProduct');
+				appliedVoucher = null;
+				localStorage.removeItem('appliedVoucher');
 				renderCart();
 			});
-			// Initial paint
+			applyVoucherBtn.addEventListener('click', () => {
+				const code = normalizeCode(voucherInput.value);
+				if (!code) {
+					voucherFeedback.textContent = 'Please enter a voucher code.';
+					voucherFeedback.classList.add('text-red-600');
+					return;
+				}
+				const match = findVoucher(code);
+				if (!match) {
+					voucherFeedback.textContent = 'Invalid voucher code.';
+					voucherFeedback.classList.add('text-red-600');
+					return;
+				}
+				appliedVoucher = {
+					code: match.code,
+					discount: match.discount
+				};
+				localStorage.setItem('appliedVoucher', JSON.stringify(appliedVoucher));
+				voucherFeedback.textContent = 'Voucher applied!';
+				voucherFeedback.classList.remove('text-red-600');
+				voucherFeedback.classList.add('text-green-700');
+				renderCart();
+			});
+			removeVoucherBtn.addEventListener('click', (e) => {
+				e.preventDefault();
+				appliedVoucher = null;
+				localStorage.removeItem('appliedVoucher');
+				voucherFeedback.textContent = 'Voucher removed.';
+				voucherFeedback.classList.remove('text-red-600');
+				voucherFeedback.classList.add('text-gray-600');
+				voucherInput.value = '';
+				renderCart();
+			});
 			renderCart();
 		</script>
 	</body>
