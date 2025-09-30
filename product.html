@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="fonts.css">
 	</head>
 	<body class="font-rubik bg-gray-50">
-		<header class="relative bg-[url('https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg')] bg-center bg-cover">
+		<header class="relative bg-[url('https://images.pexels.com/photos/10317443/pexels-photo-10317443.jpeg')] bg-center bg-cover">
 			<div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
 			<nav class="relative w-full text-white p-6 md:flex block items-center justify-between" x-data="{open: false}">
 				<div class="flex items-center justify-between md:w-auto w-full">
@@ -39,100 +39,128 @@
 			</nav>
 			<div class="relative py-24 text-center text-white">
 				<h1 class="text-6xl font-bold">Product</h1>
-				<p class="text-lg mt-2">Lorem ipsum dolor</p>
+				<p class="text-lg mt-2">Premium Grooming Products for Every Gentleman</p>
 			</div>
 		</header>
-		<main class="max-w-7xl mx-auto p-6 my-16">
+		<main class="max-w-7xl mx-auto p-6 my-16 space-y-6">
 			<h2 class="text-4xl font-medium mb-4">Recommended</h2>
 			<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
 				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
 					<img src="https://i.pinimg.com/736x/a9/d8/54/a9d854afc173609accc243db58ac32a2.jpg" alt="" class="w-full h-56 object-cover">
 					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Hair</h3>
-						<button @click="open = !open" class="flex items-center justify-between w-full text-left text-gray-700 font-medium hover:text-black">
-							<span>View Services</span>
-							<svg :class="{'rotate-180': open}" class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-							</svg>
-						</button>
-						<div x-show="open" x-transition class="mt-2 text-gray-600 space-y-1">
-							<p>- Haircut</p>
-							<p>- Haircut with Shampoo & Blowdry</p>
-							<p>- Head Shave</p>
-						</div>
-						<p class="text-lg font-bold mt-3">₱500 - ₱1200</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
-					</div>
-				</div>
-				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
-					<img src="https://i.pinimg.com/736x/f1/1b/81/f11b81f5a3c5906716bfcdeac75a0d6d.jpg" alt="" class="w-full h-56 object-cover">
-					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Hair Styling</h3>
-						<button @click="open = !open" class="flex items-center justify-between w-full text-left text-gray-700 font-medium hover:text-black">
-							<span>View Services</span>
-							<svg :class="{'rotate-180': open}" class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-							</svg>
-						</button>
-						<div x-show="open" x-transition class="mt-2 text-gray-600 space-y-1">
-							<p>- Hair Coloring</p>
-							<p>- Hair Art</p>
-							<p>- Hair Rebond</p>
-							<p>- Hair Iron/Styling</p>
-						</div>
-						<p class="text-lg font-bold mt-3">₱650 - ₱2000</p>
+						<h3 class="font-semibold text-xl">Signature Haircut Package</h3>
+						<p class="text-lg font-bold mt-3">₱500</p>
+						<p>Get a clean, sharp look tailored to your style—includes wash, cut, and finish.</p>
                         <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
 					</div>
 				</div>
 				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
 					<img src="https://i.pinimg.com/736x/ae/c9/a5/aec9a5143b18bfdbd61bfb17810c3a3d.jpg" alt="" class="w-full h-56 object-cover">
 					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Grooming</h3>
-						<button @click="open = !open" class="flex items-center justify-between w-full text-left text-gray-700 font-medium hover:text-black">
-							<span>View Services</span>
-							<svg :class="{'rotate-180': open}" class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-							</svg>
-						</button>
-						<div x-show="open" x-transition class="mt-2 text-gray-600 space-y-1">
-							<p>- Beard/Mustache Full Shave</p>
-							<p>- Beard/Mustache Trim</p>
-							<p>- Mustache Art</p>
-							<p>- Threading (eyebrows)</p>
-							<p>- Facial Hair Waxing</p>
-						</div>
-						<p class="text-lg font-bold mt-3">₱600 - ₱950</p>
+						<h3 class="font-semibold text-xl">Beard Trim & Styling Combo</h3>
+						<p class="text-lg font-bold mt-3">₱650 </p>
+						<p>Shape, define, and groom your beard with expert precision for a polished look.</p>
                         <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+					</div>
+				</div>
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://images.pexels.com/photos/14400615/pexels-photo-14400615.png" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Scalp Massage & Hair Treatment</h3>
+						<p class="text-lg font-bold mt-3">₱700</p>
+						<p>Relax with a soothing scalp massage and nutrient-rich hair treatment.</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+					</div>
+				</div>
+			</div>
+			<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://images.pexels.com/photos/905186/pexels-photo-905186.jpeg" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Luxury Shaving Kit</h3>
+						<p class="text-lg font-bold mt-3">₱1999</p>
+						<p>A complete set for the smoothest shave—premium razor, cream, and aftershave.</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Buy Now</button>
+					</div>
+				</div>
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://www.chagrinvalleysoapandsalve.com/cdn/shop/files/OrganicBeardOil-WoodlandBreeze-2.jpg?v=1730595443&width=1036" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Organic Beard Oil</h3>
+						<p class="text-lg font-bold mt-3">₱499</p>
+						<p>Nourish and soften your beard with natural oils for healthy growth and shine.</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Buy Now</button>
+					</div>
+				</div>
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://images.pexels.com/photos/4730927/pexels-photo-4730927.jpeg" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Barber’s Choice Pomade</h3>
+						<p class="text-lg font-bold mt-3">₱699</p>
+						<p>Strong hold with a natural shine—our barbers’ top pick for all-day style.</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Buy Now</button>
 					</div>
 				</div>
 			</div>
 
 
-            <main class="max-w-7xl mx-auto p-6 my-16">
+            <main class="max-w-7xl mx-auto p-6 my-16 space-y-6">
 			<h2 class=" text-4xl font-medium mb-4">Promos</h2>
 			<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
 				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
-					<img src="https://i.pinimg.com/736x/a9/d8/54/a9d854afc173609accc243db58ac32a2.jpg" alt="" class="w-full h-56 object-cover">
+					<img src="https://images.pexels.com/photos/6007400/pexels-photo-6007400.jpeg" alt="" class="w-full h-56 object-cover">
 					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Lorem</h3>
-						<p class="text-lg font-bold mt-3">₱500 - ₱1200</p>
+						<h3 class="font-semibold text-xl">Gentleman’s Grooming Package</h3>
+						<p class="text-lg font-bold mt-3">₱999</p>
+						<p>Haircut, beard trim, and hot towel shave at a special price.</p>
                         <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
 					</div>
 				</div>
 				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
-					<img src="https://i.pinimg.com/736x/f1/1b/81/f11b81f5a3c5906716bfcdeac75a0d6d.jpg" alt="" class="w-full h-56 object-cover">
+					<img src="https://images.pexels.com/photos/7697363/pexels-photo-7697363.jpeg" alt="" class="w-full h-56 object-cover">
 					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Lorem</h3>
-						<p class="text-lg font-bold mt-3">₱650 - ₱2000</p>
+						<h3 class="font-semibold text-xl">Kids’ Cut Promo</h3>
+						<p class="text-lg font-bold mt-3">₱350 (Weekdays Only)</p>
+						<p>Discounted rates for kids during weekdays.</p>
                         <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
 					</div>
 				</div>
 				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
-					<img src="https://i.pinimg.com/736x/ae/c9/a5/aec9a5143b18bfdbd61bfb17810c3a3d.jpg" alt="" class="w-full h-56 object-cover">
+					<img src="https://www.shutterstock.com/image-photo/couple-visit-beauty-salon-two-600nw-2242209037.jpg" alt="" class="w-full h-56 object-cover">
 					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Lorem</h3>
-						<p class="text-lg font-bold mt-3">₱600 - ₱950</p>
+						<h3 class="font-semibold text-xl">Couple’s Grooming Package</h3>
+						<p class="text-lg font-bold mt-3">₱799 each</p>
+						<p>Special price for two haircuts booked together.</p>
                         <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+					</div>
+				</div>
+			</div>
+			<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://images.pexels.com/photos/16372641/pexels-photo-16372641.jpeg" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Buy 2 Pomades, Get 1 Free</h3>
+						<p class="text-lg font-bold mt-3">₱999</p>
+						<p>Stock up on your favorite styling essential.</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Buy Now</button>
+					</div>
+				</div>
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://images.pexels.com/photos/8789597/pexels-photo-8789597.jpeg" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Shaving Essentials Set</h3>
+						<p class="text-lg font-bold mt-3">₱899</p>
+						<p>Complete kit with razor, shaving cream, and aftershave.</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Buy Now</button>
+					</div>
+				</div>
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://www.shutterstock.com/image-photo/couple-visit-beauty-salon-two-600nw-2242209037.jpg" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Free Shipping Promo</h3>
+						<p class="text-lg font-bold mt-3">Claim it once</p>
+						<p>On all product orders above ₱1,000.</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Claim Now</button>
 					</div>
 				</div>
 			</div>
@@ -140,42 +168,42 @@
             <div class="max-w-7xl mx-auto p-6 my-16 space-y-6">
     <div>
         <h4 class="text-4xl font-medium">Categories</h4>
-        <p class="text-lg text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean.</p>
+        <p class="text-lg text-gray-500">Discover our full range of grooming essentials—carefully selected for hair, beard, shaving, tools, and skincare. Shop by category and find exactly what you need to stay sharp and confident.</p>
     </div>
     <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
         <div class="relative">
-            <img src="https://images.pexels.com/photos/1805600/pexels-photo-1805600.jpeg" class="w-full h-96 object-cover rounded">
+            <img src="https://images.pexels.com/photos/3993466/pexels-photo-3993466.jpeg" class="w-full h-96 object-cover rounded">
             <div class="absolute inset-0 flex flex-col justify-end">
                 <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
                     <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Lorem</h4>
-                        <p class="text-sm text-white">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+                        <h4 class="text-lg font-medium text-white mb-1">Hair Care</h4>
+                        <p class="text-sm text-white">Keep your hair fresh, healthy, and stylish with shampoos, conditioners, pomades, wax, and gels.</p>
                     </div>
-                    <button class="bg-zinc-900 text-white px-4 py-2 rounded hover:bg-zinc-700 ease duration-200 ml-4 mb-1">Book Now</button>
+                    
                 </div>
             </div>
         </div>
         <div class="relative">
-            <img src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg" class="w-full h-96 object-cover rounded">
+            <img src="https://images.pexels.com/photos/7697315/pexels-photo-7697315.jpeg" class="w-full h-96 object-cover rounded">
             <div class="absolute inset-0 flex flex-col justify-end">
                 <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
                     <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Lorem</h4>
-                        <p class="text-sm text-white">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+                        <h4 class="text-lg font-medium text-white mb-1">Beard Care</h4>
+                        <p class="text-sm text-white">Oils, balms, combs, and kits for a well-groomed and nourished beard.</p>
                     </div>
-                    <button class="bg-zinc-900 text-white px-4 py-2 rounded hover:bg-zinc-700 ease duration-200 ml-4 mb-1">Book Now</button>
+                    
                 </div>
             </div>
         </div>
         <div class="relative">
-            <img src="https://images.pexels.com/photos/19762215/pexels-photo-19762215.jpeg" class="w-full h-96 object-cover rounded">
+            <img src="https://images.pexels.com/photos/1319459/pexels-photo-1319459.jpeg" class="w-full h-96 object-cover rounded">
             <div class="absolute inset-0 flex flex-col justify-end">
                 <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
                     <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Lorem</h4>
-                        <p class="text-sm text-white">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+                        <h4 class="text-lg font-medium text-white mb-1">Shaving Essentials</h4>
+                        <p class="text-sm text-white">Razors, shaving creams, and aftershaves for a smooth and comfortable shave.</p>
                     </div>
-                    <button class="bg-zinc-900 text-white px-4 py-2 rounded hover:bg-zinc-700 ease duration-200 ml-4 mb-1">Book Now</button>
+                    
                 </div>
             </div>
         </div>
@@ -183,64 +211,26 @@
 
     <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
         <div class="relative">
-            <img src="https://images.pexels.com/photos/1805600/pexels-photo-1805600.jpeg" class="w-full h-96 object-cover rounded">
+            <img src="https://images.pexels.com/photos/7697717/pexels-photo-7697717.jpeg" class="w-full h-96 object-cover rounded">
             <div class="absolute inset-0 flex flex-col justify-end">
                 <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
                     <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Lorem</h4>
-                        <p class="text-sm text-white">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+                        <h4 class="text-lg font-medium text-white mb-1">Tools & Accessories</h4>
+                        <p class="text-sm text-white">Professional clippers, scissors, and brushes trusted by barbers.</p>
                     </div>
-                    <button class="bg-zinc-900 text-white px-4 py-2 rounded hover:bg-zinc-700 ease duration-200 ml-4 mb-1">Book Now</button>
+                    
                 </div>
             </div>
         </div>
         <div class="relative">
-            <img src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg" class="w-full h-96 object-cover rounded">
+            <img src="https://images.pexels.com/photos/12302330/pexels-photo-12302330.jpeg" class="w-full h-96 object-cover rounded">
             <div class="absolute inset-0 flex flex-col justify-end">
                 <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
                     <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Lorem</h4>
-                        <p class="text-sm text-white">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+                        <h4 class="text-lg font-medium text-white mb-1">Wellness & Relaxation</h4>
+                        <p class="text-sm text-white">Scalp massagers, essential oils, and relaxation products for self-care.</p>
                     </div>
-                    <button class="bg-zinc-900 text-white px-4 py-2 rounded hover:bg-zinc-700 ease duration-200 ml-4 mb-1">Book Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="relative">
-            <img src="https://images.pexels.com/photos/19762215/pexels-photo-19762215.jpeg" class="w-full h-96 object-cover rounded">
-            <div class="absolute inset-0 flex flex-col justify-end">
-                <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
-                    <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Lorem</h4>
-                        <p class="text-sm text-white">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
-                    </div>
-                    <button class="bg-zinc-900 text-white px-4 py-2 rounded hover:bg-zinc-700 ease duration-200 ml-4 mb-1">Book Now</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="grid md:grid-cols-3 grid-cols-2 gap-4">
-        <div class="relative">
-            <img src="https://images.pexels.com/photos/1805600/pexels-photo-1805600.jpeg" class="w-full h-96 object-cover rounded">
-            <div class="absolute inset-0 flex flex-col justify-end">
-                <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
-                    <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Lorem</h4>
-                        <p class="text-sm text-white">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
-                    </div>
-                    <button class="bg-zinc-900 text-white px-4 py-2 rounded hover:bg-zinc-700 ease duration-200 ml-4 mb-1">Book Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="relative">
-            <img src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg" class="w-full h-96 object-cover rounded">
-            <div class="absolute inset-0 flex flex-col justify-end">
-                <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
-                    <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Lorem</h4>
-                        <p class="text-sm text-white">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
-                    </div>
-                    <button class="bg-zinc-900 text-white px-4 py-2 rounded hover:bg-zinc-700 ease duration-200 ml-4 mb-1">Book Now</button>
+                    
                 </div>
             </div>
         </div>
@@ -249,10 +239,10 @@
             <div class="absolute inset-0 flex flex-col justify-end">
                 <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
                     <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Lorem</h4>
-                        <p class="text-sm text-white">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+                        <h4 class="text-lg font-medium text-white mb-1">Merchandise & Apparel</h4>
+                        <p class="text-sm text-white">Barber shop branded shirts, caps, and lifestyle accessories.</p>
                     </div>
-                    <button class="bg-zinc-900 text-white px-4 py-2 rounded hover:bg-zinc-700 ease duration-200 ml-4 mb-1">Book Now</button>
+                    
                 </div>
             </div>
         </div>
