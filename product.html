@@ -328,11 +328,9 @@
     }
     saveCart(cart);
 
-    // optional: keep last selected item for old pages using selectedProduct
     localStorage.setItem('selectedProduct', JSON.stringify(product));
 
-    // optional: navigate after adding
-    // window.location.href = 'transaction.html';
+    window.location.href = 'transaction.html';
   }
 
   function handleClick(btn) {
