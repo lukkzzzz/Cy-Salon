@@ -339,7 +339,6 @@
     const cart = loadCart();
     const idx = cart.findIndex(i => Number(i.id) === Number(product.id));
     if (idx > -1) {
-      // increment qty if same product exists
       cart[idx].qty = Number(cart[idx].qty || 0) + 1;
     } else {
       cart.push({ ...product, qty: Number(product.qty) || 1 });
@@ -356,14 +355,12 @@
     const name = btn.dataset.name || 'Selected Item';
     const price = Number(btn.dataset.price) || 0;
 
-    // validate basics
     if (Number.isNaN(id)) return console.warn('Button missing valid data-id');
     if (Number.isNaN(price)) return console.warn('Button missing valid data-price');
 
     addToCart({ id, name, price, qty: 1 });
   }
 
-  // Delegate clicks to any button with the needed data attributes
   document.addEventListener('click', function (e) {
     const btn = e.target.closest('button[data-id][data-name][data-price]');
     if (!btn) return;
