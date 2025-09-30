@@ -41,96 +41,186 @@
 				<h1 class="text-6xl font-bold">Booking Summary</h1>
 			</div>
 		</header>
-		<main class="max-w-7xl mx-auto p-6 my-16">
+		<main class="max-w-7xl mx-auto p-6 my-16 space-y-8">
+			<h4 class="text-2xl font-medium">Your Cart</h4>
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-				<div class="md:col-span-2 bg-white p-4 rounded shadow">
-					<div class="flex justify-between items-center mb-4">
-						<h2 class="text-xl font-bold">Cart <span id="cart-count"></span>
-						</h2>
-						<button id="clear" class="text-red-500 text-sm">Clear cart</button>
+				<div class="md:col-span-2 space-y-4">
+					<div class="bg-white p-4 rounded shadow pb-4">
+						<div class="flex justify-between items-center mb-4">
+							<h2 class="text-xl font-bold">Cart <span id="cart-count"></span>
+							</h2>
+							<button id="clear" class="text-red-500 text-sm">Clear cart</button>
+						</div>
+						<div id="cart"></div>
 					</div>
-					<div id="cart"></div>
+					<div class="flex items-center space-x-4">
+						<input type="text" name="" id="voucher_code" class="border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600">
+						<button class="bg-zinc-800 text-white hover:bg-zinc-900 ease duration-200 text-center px-2 py-1 rounded">Add Voucher</button>
+					</div>
 				</div>
-				<div class="bg-white p-4 rounded shadow space-y-4">
-					<h3 class="text-lg font-bold">Summary</h3>
-					<div class="flex justify-between">
-						<span>Subtotal</span>
-						<span id="subtotal">₱0</span>
+				<div class="space-y-8">
+					<div class="bg-white p-4 rounded shadow space-y-4">
+						<h3 class="text-lg font-bold">Booking Information</h3>
+						<div>
+							<label for="name" class="text-sm font-medium text-gray-600">Full Name</label>
+							<input type="text" name="name" id="name" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
+						</div>
+						<div>
+							<label for="date" class="text-sm font-medium text-gray-600">Email</label>
+							<input type="email" name="email" id="email" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
+						</div>
+						<div>
+							<label for="date" class="text-sm font-medium text-gray-600">Date</label>
+							<input type="date" name="date" id="date" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
+						</div>
+						<div>
+							<label for="time" class="text-sm font-medium text-gray-600">Time</label>
+							<select name="time" id="time" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-zinc-600" required>
+								<option value="09-10">9:00AM - 10:00AM</option>
+								<option value="10-11">10:00AM - 11:00AM</option>
+								<option value="11-12">11:00AM - 12:00PM</option>
+								<option value="12-13">12:00PM - 1:00PM</option>
+								<option value="13-14">1:00PM - 2:00PM</option>
+								<option value="14-15">2:00PM - 3:00PM</option>
+								<option value="15-16">3:00PM - 4:00PM</option>
+								<option value="16-17">4:00PM - 5:00PM</option>
+							</select>
+						</div>
 					</div>
-					<div class="flex justify-between font-bold text-lg border-t pt-2">
-						<span>Total</span>
-						<span id="total">₱0</span>
-					</div>
-					<div class="mt-2 flex justify-center">
-						<a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full text-center"> 
-							Book Now 
-						</a>
+					<div class="bg-white p-4 rounded shadow space-y-4">
+						<h3 class="text-lg font-bold">Summary</h3>
+						<div class="flex justify-between">
+							<span>Subtotal</span>
+							<span id="subtotal">₱0</span>
+						</div>
+						<div class="flex justify-between font-bold text-lg border-t pt-2">
+							<span>Total</span>
+							<span id="total">₱0</span>
+						</div>
+						<div class="mt-2 flex justify-center">
+							<a href="#" class="w-full bg-zinc-800 text-white hover:bg-zinc-900 ease duration-200 text-center py-2 rounded"> Book Now </a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</main>
 		<script>
-			// Testing products
-			let cart = [{
-				id: 1,
-				name: "Haircut",
-				price: 800,
-				qty: 1
-			}, {
-				id: 2,
-				name: "Hair Coloring",
-				price: 1500,
-				qty: 1
-			}];
+			// --- Helpers ---
+			const peso = new Intl.NumberFormat('en-PH', {
+				style: 'currency',
+				currency: 'PHP',
+				minimumFractionDigits: 2,
+				maximumFractionDigits: 2,
+			});
+
+			function formatPHP(n) {
+				const num = typeof n === 'number' ? n : Number(n || 0);
+				return peso.format(num);
+			}
+
+			function loadCart() {
+				let cart = [];
+				try {
+					const savedCart = JSON.parse(localStorage.getItem('cart') || 'null');
+					if (Array.isArray(savedCart) && savedCart.length) {
+						cart = savedCart;
+					} else {
+						const selected = JSON.parse(localStorage.getItem('selectedProduct') || 'null');
+						if (selected && typeof selected === 'object') {
+							const normalized = {
+								id: Number(selected.id),
+								name: String(selected.name || 'Selected Item'),
+								price: Number(selected.price) || 0,
+								qty: Number(selected.qty) || 1,
+							};
+							cart = [normalized];
+							localStorage.setItem('cart', JSON.stringify(cart));
+						}
+					}
+				} catch (e) {
+					console.warn('Failed to parse stored cart:', e);
+					cart = [];
+				}
+				return cart;
+			}
+
+			function saveCart(cart) {
+				localStorage.setItem('cart', JSON.stringify(cart));
+			}
+			// --- State & Elements ---
+			let cart = loadCart(); // [{id, name, price, qty}]
 			const cartDiv = document.getElementById("cart");
 			const subtotalEl = document.getElementById("subtotal");
 			const totalEl = document.getElementById("total");
 			const countEl = document.getElementById("cart-count");
-
+			// --- Render ---
 			function renderCart() {
 				cartDiv.innerHTML = "";
 				let subtotal = 0;
-				cart.forEach(item => {
-					subtotal += item.price * item.qty;
-					cartDiv.innerHTML += `
-          
-						
-						<div class="flex justify-between items-center py-2 border-b">
-							<div>
-								<p class="font-semibold">${item.name}</p>
-								<p class="text-sm text-gray-500">₱${item.price}</p>
-							</div>
-							<div class="flex items-center space-x-2">
-								<button onclick="updateQty(${item.id}, -1)" class="px-2 border">-</button>
-								<span>${item.qty}</span>
-								<button onclick="updateQty(${item.id}, 1)" class="px-2 border">+</button>
-								<span class="font-bold">₱${item.price * item.qty}</span>
-								<button onclick="removeItem(${item.id})" class="text-red-500">✕</button>
-							</div>
-						</div>
-        `;
-				});
-				subtotalEl.textContent = `₱${subtotal}`;
-				totalEl.textContent = `₱${subtotal}`;
-				countEl.textContent = `(${cart.length} items)`;
-			}
-
-			function updateQty(id, change) {
-				const item = cart.find(i => i.id === id);
-				if (item) {
-					item.qty = Math.max(1, item.qty + change);
-					renderCart();
+				let totalQty = 0;
+				if (!cart.length) {
+					cartDiv.innerHTML = `
+        
+										<div class="py-6 text-center text-gray-500">
+          Your cart is empty.
+        </div>
+      `;
+					subtotalEl.textContent = formatPHP(0);
+					totalEl.textContent = formatPHP(0);
+					countEl.textContent = `(0 items)`;
+					// ✅ Persist the empty state and clean up legacy key
+					saveCart(cart); // saves []
+					localStorage.removeItem('selectedProduct');
+					return;
 				}
+				cart.forEach(item => {
+					const lineTotal = (Number(item.price) || 0) * (Number(item.qty) || 0);
+					subtotal += lineTotal;
+					totalQty += Number(item.qty) || 0;
+					cartDiv.innerHTML += `
+        
+										<div class="flex justify-between items-center py-2 border-b">
+											<div>
+												<p class="font-semibold">${item.name}</p>
+												<p class="text-sm text-gray-500">${formatPHP(item.price)}</p>
+											</div>
+											<div class="flex items-center space-x-2">
+												<button onclick="updateQty(${item.id}, -1)" class="px-2 border rounded">-</button>
+												<span>${item.qty}</span>
+												<button onclick="updateQty(${item.id}, 1)" class="px-2 border rounded">+</button>
+												<span class="font-bold min-w-28 text-right">${formatPHP(lineTotal)}</span>
+												<button onclick="removeItem(${item.id})" class="text-red-500" title="Remove">✕</button>
+											</div>
+										</div>
+      `;
+				});
+				subtotalEl.textContent = formatPHP(subtotal);
+				totalEl.textContent = formatPHP(subtotal); 
+				countEl.textContent = `(${totalQty} ${totalQty === 1 ? 'item' : 'items'})`;
+				// ✅ Persist on every render
+				saveCart(cart);
 			}
-
-			function removeItem(id) {
-				cart = cart.filter(i => i.id !== id);
+			// --- Actions (exposed to inline handlers) ---
+			window.updateQty = function(id, change) {
+				const idx = cart.findIndex(i => Number(i.id) === Number(id));
+				if (idx === -1) return;
+				const next = Math.max(1, Number(cart[idx].qty) + Number(change));
+				cart[idx].qty = next;
 				renderCart();
-			}
+			};
+			window.removeItem = function(id) {
+				cart = cart.filter(i => Number(i.id) !== Number(id));
+				renderCart(); // will save [] and remove selectedProduct if empty
+			};
+			// Clear cart button
 			document.getElementById("clear").addEventListener("click", () => {
 				cart = [];
+				// Persist immediately so storage is clean even before render
+				saveCart(cart);
+				localStorage.removeItem('selectedProduct');
 				renderCart();
 			});
+			// Initial paint
 			renderCart();
 		</script>
 	</body>

@@ -3,342 +3,143 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>About Us - Cy Salon</title>
+		<title>Services</title>
 		<script src="https://cdn.tailwindcss.com"></script>
-		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-		<style>
-			@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
-			* {
-				font-family: 'Inter', sans-serif;
-			}
-
-			.gradient-bg {
-				background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
-			}
-
-			.glass-effect {
-				backdrop-filter: blur(20px);
-				background: rgba(255, 255, 255, 0.1);
-				border: 1px solid rgba(255, 255, 255, 0.2);
-			}
-
-			.zinc-gradient {
-				background: linear-gradient(135deg, #71717a 0%, #a1a1aa 50%, #52525b 100%);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-clip: text;
-			}
-
-			.floating-animation {
-				animation: float 6s ease-in-out infinite;
-			}
-
-			.glow-effect {
-				box-shadow: 0 0 50px rgba(113, 113, 122, 0.3);
-			}
-
-			.parallax-bg {
-				background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg');
-				background-size: cover;
-				background-attachment: fixed;
-				background-position: center;
-			}
-
-			@keyframes float {
-
-				0%,
-				100% {
-					transform: translateY(0px);
-				}
-
-				50% {
-					transform: translateY(-10px);
-				}
-			}
-
-			@keyframes fadeInUp {
-				from {
-					opacity: 0;
-					transform: translateY(30px);
-				}
-
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-
-			@keyframes pulse {
-
-				0%,
-				100% {
-					transform: scale(1);
-				}
-
-				50% {
-					transform: scale(1.05);
-				}
-			}
-
-			.fade-in-up {
-				animation: fadeInUp 0.8s ease-out forwards;
-				opacity: 0;
-			}
-
-			.pulse-hover:hover {
-				animation: pulse 0.5s ease-in-out;
-			}
-
-			.team-card {
-				transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-			}
-
-			.team-card:hover {
-				transform: translateY(-15px) rotateY(5deg);
-				box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-			}
-
-			.menu-item {
-				position: relative;
-				overflow: hidden;
-			}
-
-			.menu-item::after {
-				content: '';
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				width: 0;
-				height: 2px;
-				background: linear-gradient(90deg, #71717a, #a1a1aa);
-				transition: width 0.3s ease;
-			}
-
-			.menu-item:hover::after {
-				width: 100%;
-			}
-
-			.geometric-bg {
-				background-image:
-					radial-gradient(circle at 20% 50%, rgba(113, 113, 122, 0.1) 0%, transparent 50%),
-					radial-gradient(circle at 80% 20%, rgba(161, 161, 170, 0.1) 0%, transparent 50%),
-					radial-gradient(circle at 40% 80%, rgba(82, 82, 91, 0.1) 0%, transparent 50%);
-			}
-
-			.reveal {
-				opacity: 0;
-				transform: translateY(50px);
-				transition: all 0.8s ease-out;
-			}
-
-			.reveal.active {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		</style>
+		<link rel="stylesheet" href="fonts.css">
 	</head>
-	<body class="bg-black text-white overflow-x-hidden">
-		<nav class="relative w-full bg-transparent text-white p-6 md:flex block items-center justify-between">
-			<div class="flex items-center justify-between md:w-auto w-full">
-				<h4 class="text-2xl font-extrabold tracking-wide">Cy Salon</h4>
-				<button id="menu-toggle" class="border p-2 rounded md:hidden block border-gray-300 bg-white text-zinc-600" aria-label="Toggle menu">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 20 20">
-						<path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
-					</svg>
-				</button>
+	<body class="font-rubik bg-gray-50">
+		<header class="relative bg-[url('https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg')] bg-center bg-cover">
+			<div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
+			<nav class="relative w-full text-white p-6 md:flex block items-center justify-between" x-data="{open: false}">
+				<div class="flex items-center justify-between md:w-auto w-full">
+					<h4 class="text-xl">Cy Salon</h4>
+					<button class="border p-2 rounded md:hidden block border-gray-500" @click="open = !open" aria-label="Toggle menu">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+							<path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+						</svg>
+					</button>
+				</div>
+				<ul class="md:flex md:items-center md:space-x-4 md:mt-0 mt-4 md:space-y-0 space-y-2" :class="{'hidden': !open}">
+					<li>
+                        <a href="index.html">Home</a>
+                    </li>
+					<li>
+                        <a href="aboutUs.html">About Us</a>
+                    </li>
+					<li>
+                        <a href="services.html">Services</a>
+                    </li>
+					<li>
+                        <a href="customerService.html">Customer Care</a>
+                    </li>
+                    <li>
+                        <a href="booking.html">Book Now</a>
+                    </li>
+				</ul>
+			</nav>
+			<div class="relative py-24 text-center text-white">
+				<h1 class="text-6xl font-bold">Committed to Excellence in Grooming</h1>
+				<p class="text-lg mt-2">Providing Superior Grooming Experiences Backed by Expertise and Passion</p>
 			</div>
-			<ul id="menu" class="hidden md:flex md:items-center md:space-x-4 md:mt-0 mt-4">
-				<li>
-                    <a href="index.html">Home</a>
-                </li>
-				<li>
-                    <a href="aboutUs.html">About Us</a>
-                </li>
-				<li>
-                    <a href="services.html">Services</a>
-                </li>
-				<li>
-                    <a href="customerService.html">Customer Care</a>
-                </li>
-                <li>
-                    <a href="booking.html">Book Now</a>
-                </li>
-			</ul>
-		</nav>
-		<!-- Hero Section -->
-		<section class="parallax-bg min-h-screen flex items-center justify-center relative overflow-hidden">
-			<div class="geometric-bg absolute inset-0"></div>
-			<div class="relative z-10 text-center max-w-5xl mx-auto px-6">
-				<h1 class="text-7xl lg:text-8xl font-black mb-8 leading-tight">
-					<span class="zinc-gradient floating-animation inline-block">ABOUT</span>
-					<br>
-					<span class="text-white">CY SALON</span>
-				</h1>
-				<p class="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light"> Where artistry meets precision. Where tradition embraces innovation. Where every cut tells a story of confidence and style. </p>
-				<div class="mt-12 flex justify-center">
-					<div class="w-24 h-1 bg-gradient-to-r from-transparent via-zinc-400 to-transparent"></div>
-				</div>
-			</div>
-			<!-- Floating Elements -->
-			<div class="absolute top-1/4 left-10 w-20 h-20 border border-zinc-400 border-opacity-30 rounded-full floating-animation" style="animation-delay: -2s;"></div>
-			<div class="absolute bottom-1/4 right-16 w-16 h-16 border border-zinc-400 border-opacity-20 rotate-45 floating-animation" style="animation-delay: -4s;"></div>
-		</section>
-		<!-- Story Section -->
-		<section class="py-32 bg-gradient-to-b from-black to-gray-900 relative">
-			<div class="max-w-7xl mx-auto px-6">
-				<div class="grid lg:grid-cols-2 gap-16 items-center">
-					<div class="reveal">
-						<span class="text-zinc-400 text-sm font-semibold tracking-wider uppercase">Our Legacy</span>
-						<h2 class="text-5xl lg:text-6xl font-black mt-4 mb-8 leading-tight"> Crafting Excellence <span class="zinc-gradient">Since 2010</span>
-						</h2>
-						<p class="text-xl text-gray-300 leading-relaxed mb-8"> What began as a vision to revive the lost art of traditional barbering has evolved into a sanctuary where modern gentlemen discover their finest selves. Every scissor cut, every razor stroke, every styling decision is a testament to our unwavering commitment to perfection. </p>
-						<div class="flex items-center space-x-8 mt-12">
-							<div class="text-center">
-								<div class="text-4xl font-black zinc-gradient">15+</div>
-								<div class="text-gray-400 text-sm">Years Experience</div>
-							</div>
-							<div class="w-px h-12 bg-gray-600"></div>
-							<div class="text-center">
-								<div class="text-4xl font-black zinc-gradient">10K+</div>
-								<div class="text-gray-400 text-sm">Happy Clients</div>
-							</div>
-							<div class="w-px h-12 bg-gray-600"></div>
-							<div class="text-center">
-								<div class="text-4xl font-black zinc-gradient">100%</div>
-								<div class="text-gray-400 text-sm">Satisfaction</div>
-							</div>
-						</div>
-					</div>
-					<div class="reveal relative">
-						<div class="absolute -inset-4 bg-gradient-to-r from-zinc-400 to-zinc-600 rounded-2xl blur-lg opacity-20"></div>
-						<img src="https://images.pexels.com/photos/897271/pexels-photo-897271.jpeg" alt="Salon interior" class="relative rounded-2xl shadow-2xl glow-effect w-full h-96 object-cover">
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Team Section -->
-		<section class="py-32 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
-			<div class="geometric-bg absolute inset-0 opacity-50"></div>
-			<div class="relative max-w-7xl mx-auto px-6">
-				<div class="text-center mb-20 reveal">
-					<span class="text-zinc-400 text-sm font-semibold tracking-wider uppercase">The Masters</span>
-					<h2 class="text-5xl lg:text-6xl font-black mt-4 mb-8 leading-tight"> Meet Our <span class="zinc-gradient">Elite Team</span>
-					</h2>
-					<p class="text-xl text-gray-300 max-w-3xl mx-auto"> Each master craftsman brings years of expertise and an unwavering passion for the art of grooming. </p>
-				</div>
-				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-					<!-- Team Member 1 -->
-					<div class="team-card reveal glass-effect rounded-3xl p-8 text-center group">
-						<div class="relative mb-8">
-							<div class="absolute -inset-2 bg-gradient-to-r from-zinc-400 to-zinc-600 rounded-full blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
-							<img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Cy Laugo" class="relative w-32 h-32 mx-auto rounded-full border-4 border-zinc-400 object-cover">
-						</div>
-						<h3 class="text-2xl font-bold mb-2 zinc-gradient">Cy Laugo</h3>
-						<p class="text-zinc-400 text-sm font-semibold tracking-wider uppercase mb-4">Master Barber & Founder</p>
-						<p class="text-gray-300 text-sm leading-relaxed"> With over 15 years of experience, Cy has mastered every aspect of traditional and modern barbering techniques. </p>
-						<div class="mt-6 flex justify-center space-x-3">
-							<div class="w-2 h-2 bg-zinc-400 rounded-full"></div>
-							<div class="w-2 h-2 bg-zinc-400 rounded-full opacity-60"></div>
-							<div class="w-2 h-2 bg-zinc-400 rounded-full opacity-30"></div>
-						</div>
-					</div>
-					<!-- Team Member 2 -->
-					<div class="team-card reveal glass-effect rounded-3xl p-8 text-center group" style="animation-delay: 0.2s;">
-						<div class="relative mb-8">
-							<div class="absolute -inset-2 bg-gradient-to-r from-zinc-400 to-zinc-600 rounded-full blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
-							<img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Myles Pangilinan" class="relative w-32 h-32 mx-auto rounded-full border-4 border-zinc-400 object-cover">
-						</div>
-						<h3 class="text-2xl font-bold mb-2 zinc-gradient">Myles Pangilinan</h3>
-						<p class="text-zinc-400 text-sm font-semibold tracking-wider uppercase mb-4">Senior Hair Stylist</p>
-						<p class="text-gray-300 text-sm leading-relaxed"> Specializing in contemporary cuts and styling, Myles brings creativity and precision to every client experience. </p>
-						<div class="mt-6 flex justify-center space-x-3">
-							<div class="w-2 h-2 bg-zinc-400 rounded-full"></div>
-							<div class="w-2 h-2 bg-zinc-400 rounded-full opacity-60"></div>
-							<div class="w-2 h-2 bg-zinc-400 rounded-full opacity-30"></div>
-						</div>
-					</div>
-					<!-- Team Member 3 -->
-					<div class="team-card reveal glass-effect rounded-3xl p-8 text-center group" style="animation-delay: 0.4s;">
-						<div class="relative mb-8">
-							<div class="absolute -inset-2 bg-gradient-to-r from-zinc-400 to-zinc-600 rounded-full blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
-							<img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Thad Toledo" class="relative w-32 h-32 mx-auto rounded-full border-4 border-zinc-400 object-cover">
-						</div>
-						<h3 class="text-2xl font-bold mb-2 zinc-gradient">Thad Toledo</h3>
-						<p class="text-zinc-400 text-sm font-semibold tracking-wider uppercase mb-4">Fade Specialist</p>
-						<p class="text-gray-300 text-sm leading-relaxed"> Known for his impeccable fade techniques, Thad creates seamless transitions that define modern barbering excellence. </p>
-						<div class="mt-6 flex justify-center space-x-3">
-							<div class="w-2 h-2 bg-zinc-400 rounded-full"></div>
-							<div class="w-2 h-2 bg-zinc-400 rounded-full opacity-60"></div>
-							<div class="w-2 h-2 bg-zinc-400 rounded-full opacity-30"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Values Section -->
-		<section class="py-32 bg-gradient-to-b from-black to-gray-900">
-			<div class="max-w-7xl mx-auto px-6 text-center">
-				<div class="reveal mb-20">
-					<span class="text-zinc-400 text-sm font-semibold tracking-wider uppercase">Our Philosophy</span>
-					<h2 class="text-5xl lg:text-6xl font-black mt-4 mb-8 leading-tight"> What We <span class="zinc-gradient">Stand For</span>
-					</h2>
-				</div>
-				<div class="grid md:grid-cols-3 gap-12 mt-16">
-					<div class="reveal glass-effect rounded-2xl p-8 group hover:bg-white hover:bg-opacity-5 transition-all duration-500">
-						<div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-zinc-400 to-zinc-600 rounded-2xl flex items-center justify-center text-black text-2xl font-bold group-hover:scale-110 transition-transform duration-300"> ✂ </div>
-						<h3 class="text-2xl font-bold mb-4 zinc-gradient">Craftsmanship</h3>
-						<p class="text-gray-300 leading-relaxed">Every cut is a work of art, executed with precision and passion that comes from years of dedicated practice.</p>
-					</div>
-					<div class="reveal glass-effect rounded-2xl p-8 group hover:bg-white hover:bg-opacity-5 transition-all duration-500" style="animation-delay: 0.2s;">
-						<div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-zinc-400 to-zinc-600 rounded-2xl flex items-center justify-center text-black text-2xl font-bold group-hover:scale-110 transition-transform duration-300"> ⭐ </div>
-						<h3 class="text-2xl font-bold mb-4 zinc-gradient">Excellence</h3>
-						<p class="text-gray-300 leading-relaxed">We never compromise on quality. From the products we use to the service we provide, excellence is our standard.</p>
-					</div>
-					<div class="reveal glass-effect rounded-2xl p-8 group hover:bg-white hover:bg-opacity-5 transition-all duration-500" style="animation-delay: 0.4s;">
-						<div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-zinc-400 to-zinc-600 rounded-2xl flex items-center justify-center text-black text-2xl font-bold group-hover:scale-110 transition-transform duration-300"> 💎 </div>
-						<h3 class="text-2xl font-bold mb-4 zinc-gradient">Luxury</h3>
-						<p class="text-gray-300 leading-relaxed">Every visit is an experience. From our premium environment to personalized service, luxury is in every detail.</p>
-					</div>
-				</div>
-			</div>
-		</section>
-		<script>
-			document.addEventListener("DOMContentLoaded", function() {
-				const menuButton = document.querySelector("button[aria-label='Toggle menu']");
-				const menu = document.getElementById("menu");
-				if (menuButton && menu) {
-					menuButton.addEventListener("click", () => {
-						menu.classList.toggle("hidden");
-					});
-				}
-			});
+		</header>
+		<main class="space-y-24 my-16">
+            <section class="max-w-7xl mx-auto grid md:grid-cols-2 grid-cols-1 gap-4 ">
+                <div class="space-y-8">
+                    <div class="space-y-2">
+                        <p class="text-gray-600">OUR LEGACY</p>
+                        <h4 class="text-5xl font-bold">Crafting Excellence Since 2010</h4>
+                        <p class="text-lg">What began as a vision to revive the lost art of traditional barbering has evolved into a sanctuary where modern gentlemen discover their finest selves. Every scissor cut, every razor stroke, every styling decision is a testament to our unwavering commitment to perfection.</p>
+                    </div>
+                    <div class="flex items-center space-x-8 md:justify-start justify-between">
+                        <div class="text-center space-y-2">
+                            <h4 class="text-4xl font-bold">15+</h4>
+                            <p class="text-gray-700">Years of Experience</p>
+                        </div>
+                        <div class="text-center space-y-2 border-x px-8">
+                            <h4 class="text-4xl font-bold">10K+</h4>
+                            <p class="text-gray-700">Happy Clients</p>
+                        </div>
+                        <div class="text-center space-y-2">
+                            <h4 class="text-4xl font-bold">99.99%</h4>
+                            <p class="text-gray-700">Customer Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.pexels.com/photos/897271/pexels-photo-897271.jpeg" class="w-full h-96 object-cover rounded-lg shadow">
+                </div>
+            </section>     
+            <section class="max-w-7xl px-4 mx-auto space-y-8">
+                <div class="space-y-2">
+                    <p class="text-gray-600 uppercase">The Masters</p>
+                    <h4 class="text-5xl font-bold">Meet Our Elite Team</h4>
+                    <p class="text-lg">Each master craftsman brings years of expertise and an unwavering passion for the art of grooming.</p>
+                </div>
+                <div class="w-full grid md:grid-cols-3 grid-cols-1 gap-4">
+                    <div class="bg-white rounded-lg border shadow-sm p-4 space-y-4">
+                        <img src="https://placehold.co/120x120" class="w-32 h-32 object-cover rounded-full mx-auto">
+                        <div class="space-y-2">
+                            <h4 class="text-center font-medium text-2xl">Cyril Laugo</h4>
+                            <p class="text-center text-gray-500 italic">"The Barber Extraordinaire"</p>
+                        </div>
+                        <p class="text-center px-2 text-gray-700">With over 15 years of experience, Cy has mastered every aspect of traditional and modern barbering techniques.</p>
+                    </div>
 
-			function reveal() {
-				const reveals = document.querySelectorAll('.reveal');
-				for (let i = 0; i < reveals.length; i++) {
-					const windowHeight = window.innerHeight;
-					const elementTop = reveals[i].getBoundingClientRect().top;
-					const elementVisible = 150;
-					if (elementTop < windowHeight - elementVisible) {
-						reveals[i].classList.add('active');
-					}
-				}
-			}
-			window.addEventListener('scroll', reveal);
-			reveal();
-			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-				anchor.addEventListener('click', function(e) {
-					e.preventDefault();
-					const target = document.querySelector(this.getAttribute('href'));
-					if (target) {
-						target.scrollIntoView({
-							behavior: 'smooth',
-							block: 'start'
-						});
-					}
-				});
-			});
-		</script>
+                    <div class="bg-white rounded-lg border shadow-sm p-4 space-y-4">
+                        <img src="https://placehold.co/120x120" class="w-32 h-32 object-cover rounded-full mx-auto">
+                        <div class="space-y-2">
+                            <h4 class="text-center font-medium text-2xl">Myles Pangilinan</h4>
+                            <p class="text-center text-gray-500 italic">"The Style Innovator"</p>
+                        </div>
+                        <p class="text-center px-2 text-gray-700">Specializing in contemporary cuts and styling, Myles brings creativity and precision to every client experience.</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg border shadow-sm p-4 space-y-4">
+                        <img src="https://placehold.co/120x120" class="w-32 h-32 object-cover rounded-full mx-auto">
+                        <div class="space-y-2">
+                            <h4 class="text-center font-medium text-2xl">Thaddeus Toledo</h4>
+                            <p class="text-center text-gray-500 italic">"The Fade Specialist"</p>
+                        </div>
+                        <p class="text-center px-2 text-gray-700">Known for his impeccable fade techniques, Thad creates seamless transitions that define modern barbering excellence.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="max-w-7xl mx-auto p-4">
+                <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
+                    <div class="border p-4 bg-white rounded-xl shadow-sm space-y-4">
+                        <div class="space-y-2 text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-10 bg-zinc-900 text-white p-2 rounded-lg mx-auto">
+                                <path fill-rule="evenodd" d="M1.469 3.75a3.5 3.5 0 0 0 5.617 4.11l.883.51c.025.092.147.116.21.043.15-.176.318-.338.5-.484.286-.23.3-.709-.018-.892l-.825-.477A3.501 3.501 0 0 0 1.47 3.75Zm2.03 3.482a2 2 0 1 1 2-3.464 2 2 0 0 1-2 3.464ZM9.956 8.322a2.75 2.75 0 0 0-1.588 1.822L7.97 11.63l-.884.51A3.501 3.501 0 0 0 1.47 16.25a3.5 3.5 0 0 0 6.367-2.81l10.68-6.166a.75.75 0 0 0-.182-1.373l-.703-.189a2.75 2.75 0 0 0-1.78.123L9.955 8.322ZM2.768 15.5a2 2 0 1 1 3.464-2 2 2 0 0 1-3.464 2Z" clip-rule="evenodd" />
+                                <path d="M12.52 11.89a.5.5 0 0 0 .056.894l3.274 1.381a2.75 2.75 0 0 0 1.78.123l.704-.189a.75.75 0 0 0 .18-1.373l-3.47-2.004a.5.5 0 0 0-.5 0L12.52 11.89Z" />
+                            </svg>
+                            <h4 class="text-lg font-medium">Craftsmanship</h4>
+                        </div>
+                        <p>Every cut is a work of art, executed with precision and passion that comes from years of dedicated practice.</p>
+                    </div>
+
+                    <div class="border p-4 bg-white rounded-xl shadow-sm space-y-4">
+                        <div class="space-y-2 text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-10 bg-zinc-900 text-white p-2 rounded-lg mx-auto">
+                                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
+                            </svg>
+                            <h4 class="text-lg font-medium">Excellence</h4>
+                        </div>
+                        <p>We never compromise on quality. From the products we use to the service we provide, excellence is our standard.</p>
+                    </div>
+
+                    <div class="border p-4 bg-white rounded-xl shadow-sm space-y-4">
+                        <div class="space-y-2 text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-10 bg-zinc-900 text-white p-2 rounded-lg mx-auto">
+                                <path fill-rule="evenodd" d="M1 4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm12 4a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM4 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm13-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM1.75 14.5a.75.75 0 0 0 0 1.5c4.417 0 8.693.603 12.749 1.73 1.111.309 2.251-.512 2.251-1.696v-.784a.75.75 0 0 0-1.5 0v.784a.272.272 0 0 1-.35.25A49.043 49.043 0 0 0 1.75 14.5Z" clip-rule="evenodd" />
+                            </svg>
+                            <h4 class="text-lg font-medium">Luxury</h4>
+                        </div>
+                        <p>Every visit is an experience. From our premium environment to personalized service, luxury is in every detail.</p>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+		<script src="https://unpkg.com/alpinejs" defer></script>
 	</body>
 </html>

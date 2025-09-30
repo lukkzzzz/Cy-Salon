@@ -20,21 +20,11 @@
 					</button>
 				</div>
 				<ul class="md:flex md:items-center md:space-x-4 md:mt-0 mt-4 md:space-y-0 space-y-2" :class="{'hidden': !open}">
-					<li>
-                        <a href="index.html">Home</a>
-                    </li>
-					<li>
-                        <a href="aboutUs.html">About Us</a>
-                    </li>
-					<li>
-                        <a href="services.html">Services</a>
-                    </li>
-					<li>
-                        <a href="customerService.html">Customer Care</a>
-                    </li>
-                    <li>
-                        <a href="booking.html">Book Now</a>
-                    </li>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aboutUs.html">About Us</a></li>
+					<li><a href="services.html">Services</a></li>
+					<li><a href="customerService.html">Customer Care</a></li>
+					<li><a href="booking.html">Book Now</a></li>
 				</ul>
 			</nav>
 			<div class="relative py-24 text-center text-white">
@@ -42,6 +32,7 @@
 				<p class="text-lg mt-2">Premium Grooming Products for Every Gentleman</p>
 			</div>
 		</header>
+
 		<main class="max-w-7xl mx-auto p-6 my-16 space-y-6">
 			<h2 class="text-4xl font-medium mb-4">Recommended</h2>
 			<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
@@ -51,7 +42,12 @@
 						<h3 class="font-semibold text-xl">Signature Haircut Package</h3>
 						<p class="text-lg font-bold mt-3">₱500</p>
 						<p>Get a clean, sharp look tailored to your style—includes wash, cut, and finish.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+						<button
+							class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+							data-id="101"
+							data-name="Signature Haircut Package"
+							data-price="500"
+						>Book Now</button>
 					</div>
 				</div>
 				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
@@ -60,7 +56,12 @@
 						<h3 class="font-semibold text-xl">Beard Trim & Styling Combo</h3>
 						<p class="text-lg font-bold mt-3">₱650 </p>
 						<p>Shape, define, and groom your beard with expert precision for a polished look.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+						<button
+							class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+							data-id="102"
+							data-name="Beard Trim & Styling Combo"
+							data-price="650"
+						>Book Now</button>
 					</div>
 				</div>
 				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
@@ -69,10 +70,16 @@
 						<h3 class="font-semibold text-xl">Scalp Massage & Hair Treatment</h3>
 						<p class="text-lg font-bold mt-3">₱700</p>
 						<p>Relax with a soothing scalp massage and nutrient-rich hair treatment.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+						<button
+							class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+							data-id="103"
+							data-name="Scalp Massage & Hair Treatment"
+							data-price="700"
+						>Book Now</button>
 					</div>
 				</div>
 			</div>
+
 			<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
 				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
 					<img src="https://images.pexels.com/photos/905186/pexels-photo-905186.jpeg" alt="" class="w-full h-56 object-cover">
@@ -80,7 +87,12 @@
 						<h3 class="font-semibold text-xl">Luxury Shaving Kit</h3>
 						<p class="text-lg font-bold mt-3">₱1999</p>
 						<p>A complete set for the smoothest shave—premium razor, cream, and aftershave.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Buy Now</button>
+						<button
+							class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+							data-id="201"
+							data-name="Luxury Shaving Kit"
+							data-price="1999"
+						>Buy Now</button>
 					</div>
 				</div>
 				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
@@ -89,7 +101,12 @@
 						<h3 class="font-semibold text-xl">Organic Beard Oil</h3>
 						<p class="text-lg font-bold mt-3">₱499</p>
 						<p>Nourish and soften your beard with natural oils for healthy growth and shine.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Buy Now</button>
+						<button
+							class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+							data-id="202"
+							data-name="Organic Beard Oil"
+							data-price="499"
+						>Buy Now</button>
 					</div>
 				</div>
 				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
@@ -98,157 +115,249 @@
 						<h3 class="font-semibold text-xl">Barber’s Choice Pomade</h3>
 						<p class="text-lg font-bold mt-3">₱699</p>
 						<p>Strong hold with a natural shine—our barbers’ top pick for all-day style.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Buy Now</button>
+						<button
+							class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+							data-id="203"
+							data-name="Barber’s Choice Pomade"
+							data-price="699"
+						>Buy Now</button>
 					</div>
 				</div>
 			</div>
 
+			<div class="max-w-7xl mx-auto p-6 my-16 space-y-6">
+				<h2 class=" text-4xl font-medium mb-4">Promos</h2>
+				<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
+					<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+						<img src="https://images.pexels.com/photos/6007400/pexels-photo-6007400.jpeg" alt="" class="w-full h-56 object-cover">
+						<div class="p-4 space-y-2">
+							<h3 class="font-semibold text-xl">Gentleman’s Grooming Package</h3>
+							<p class="text-lg font-bold mt-3">₱999</p>
+							<p>Haircut, beard trim, and hot towel shave at a special price.</p>
+							<button
+								class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+								data-id="301"
+								data-name="Gentleman’s Grooming Package"
+								data-price="999"
+							>Book Now</button>
+						</div>
+					</div>
+					<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+						<img src="https://images.pexels.com/photos/7697363/pexels-photo-7697363.jpeg" alt="" class="w-full h-56 object-cover">
+						<div class="p-4 space-y-2">
+							<h3 class="font-semibold text-xl">Kids’ Cut Promo</h3>
+							<p class="text-lg font-bold mt-3">₱350 (Weekdays Only)</p>
+							<p>Discounted rates for kids during weekdays.</p>
+							<button
+								class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+								data-id="302"
+								data-name="Kids’ Cut Promo"
+								data-price="350"
+							>Book Now</button>
+						</div>
+					</div>
+					<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+						<img src="https://www.shutterstock.com/image-photo/couple-visit-beauty-salon-two-600nw-2242209037.jpg" alt="" class="w-full h-56 object-cover">
+						<div class="p-4 space-y-2">
+							<h3 class="font-semibold text-xl">Couple’s Grooming Package</h3>
+							<p class="text-lg font-bold mt-3">₱799 each</p>
+							<p>Special price for two haircuts booked together.</p>
+							<button
+								class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+								data-id="303"
+								data-name="Couple’s Grooming Package"
+								data-price="799"
+							>Book Now</button>
+						</div>
+					</div>
+				</div>
 
-            <main class="max-w-7xl mx-auto p-6 my-16 space-y-6">
-			<h2 class=" text-4xl font-medium mb-4">Promos</h2>
-			<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
-				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
-					<img src="https://images.pexels.com/photos/6007400/pexels-photo-6007400.jpeg" alt="" class="w-full h-56 object-cover">
-					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Gentleman’s Grooming Package</h3>
-						<p class="text-lg font-bold mt-3">₱999</p>
-						<p>Haircut, beard trim, and hot towel shave at a special price.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+				<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
+					<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+						<img src="https://images.pexels.com/photos/16372641/pexels-photo-16372641.jpeg" alt="" class="w-full h-56 object-cover">
+						<div class="p-4 space-y-2">
+							<h3 class="font-semibold text-xl">Buy 2 Pomades, Get 1 Free</h3>
+							<p class="text-lg font-bold mt-3">₱999</p>
+							<p>Stock up on your favorite styling essential.</p>
+							<button
+								class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+								data-id="304"
+								data-name="Buy 2 Pomades, Get 1 Free"
+								data-price="999"
+							>Buy Now</button>
+						</div>
+					</div>
+					<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+						<img src="https://images.pexels.com/photos/8789597/pexels-photo-8789597.jpeg" alt="" class="w-full h-56 object-cover">
+						<div class="p-4 space-y-2">
+							<h3 class="font-semibold text-xl">Shaving Essentials Set</h3>
+							<p class="text-lg font-bold mt-3">₱899</p>
+							<p>Complete kit with razor, shaving cream, and aftershave.</p>
+							<button
+								class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+								data-id="305"
+								data-name="Shaving Essentials Set"
+								data-price="899"
+							>Buy Now</button>
+						</div>
+					</div>
+					<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+						<img src="https://cdn-oss.ginee.com/official/wp-content/uploads/2021/12/image-285.png" alt="" class="w-full h-56 object-cover">
+						<div class="p-4 space-y-2">
+							<h3 class="font-semibold text-xl">Free Shipping Promo</h3>
+							<p class="text-lg font-bold mt-3">Claim it once</p>
+							<p>On all product orders above ₱1,000.</p>
+							<button
+								class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200"
+								data-id="306"
+								data-name="Free Shipping Promo"
+								data-price="0"
+							>Claim Now</button>
+						</div>
 					</div>
 				</div>
-				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
-					<img src="https://images.pexels.com/photos/7697363/pexels-photo-7697363.jpeg" alt="" class="w-full h-56 object-cover">
-					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Kids’ Cut Promo</h3>
-						<p class="text-lg font-bold mt-3">₱350 (Weekdays Only)</p>
-						<p>Discounted rates for kids during weekdays.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
-					</div>
-				</div>
-				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
-					<img src="https://www.shutterstock.com/image-photo/couple-visit-beauty-salon-two-600nw-2242209037.jpg" alt="" class="w-full h-56 object-cover">
-					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Couple’s Grooming Package</h3>
-						<p class="text-lg font-bold mt-3">₱799 each</p>
-						<p>Special price for two haircuts booked together.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
-					</div>
-				</div>
-			</div>
-			<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
-				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
-					<img src="https://images.pexels.com/photos/16372641/pexels-photo-16372641.jpeg" alt="" class="w-full h-56 object-cover">
-					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Buy 2 Pomades, Get 1 Free</h3>
-						<p class="text-lg font-bold mt-3">₱999</p>
-						<p>Stock up on your favorite styling essential.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Buy Now</button>
-					</div>
-				</div>
-				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
-					<img src="https://images.pexels.com/photos/8789597/pexels-photo-8789597.jpeg" alt="" class="w-full h-56 object-cover">
-					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Shaving Essentials Set</h3>
-						<p class="text-lg font-bold mt-3">₱899</p>
-						<p>Complete kit with razor, shaving cream, and aftershave.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Buy Now</button>
-					</div>
-				</div>
-				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
-					<img src="https://cdn-oss.ginee.com/official/wp-content/uploads/2021/12/image-285.png" alt="" class="w-full h-56 object-cover">
-					<div class="p-4 space-y-2">
-						<h3 class="font-semibold text-xl">Free Shipping Promo</h3>
-						<p class="text-lg font-bold mt-3">Claim it once</p>
-						<p>On all product orders above ₱1,000.</p>
-                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Claim Now</button>
-					</div>
-				</div>
-			</div>
 
-            <div class="max-w-7xl mx-auto p-6 my-16 space-y-6">
-    <div>
-        <h4 class="text-4xl font-medium">Categories</h4>
-        <p class="text-lg text-gray-500">Discover our full range of grooming essentials—carefully selected for hair, beard, shaving, tools, and skincare. Shop by category and find exactly what you need to stay sharp and confident.</p>
-    </div>
-    <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
-        <div class="relative">
-            <img src="https://images.pexels.com/photos/3993466/pexels-photo-3993466.jpeg" class="w-full h-96 object-cover rounded">
-            <div class="absolute inset-0 flex flex-col justify-end">
-                <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
-                    <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Hair Care</h4>
-                        <p class="text-sm text-white">Keep your hair fresh, healthy, and stylish with shampoos, conditioners, pomades, wax, and gels.</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="relative">
-            <img src="https://images.pexels.com/photos/7697315/pexels-photo-7697315.jpeg" class="w-full h-96 object-cover rounded">
-            <div class="absolute inset-0 flex flex-col justify-end">
-                <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
-                    <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Beard Care</h4>
-                        <p class="text-sm text-white">Oils, balms, combs, and kits for a well-groomed and nourished beard.</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="relative">
-            <img src="https://images.pexels.com/photos/1319459/pexels-photo-1319459.jpeg" class="w-full h-96 object-cover rounded">
-            <div class="absolute inset-0 flex flex-col justify-end">
-                <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
-                    <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Shaving Essentials</h4>
-                        <p class="text-sm text-white">Razors, shaving creams, and aftershaves for a smooth and comfortable shave.</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+				<div class="max-w-7xl mx-auto p-6 my-16 space-y-6">
+					<div>
+						<h4 class="text-4xl font-medium">Categories</h4>
+						<p class="text-lg text-gray-500">Discover our full range of grooming essentials—carefully selected for hair, beard, shaving, tools, and skincare. Shop by category and find exactly what you need to stay sharp and confident.</p>
+					</div>
+					<div class="grid md:grid-cols-3 grid-cols-1 gap-4">
+						<div class="relative">
+							<img src="https://images.pexels.com/photos/3993466/pexels-photo-3993466.jpeg" class="w-full h-96 object-cover rounded">
+							<div class="absolute inset-0 flex flex-col justify-end">
+								<div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
+									<div>
+										<h4 class="text-lg font-medium text-white mb-1">Hair Care</h4>
+										<p class="text-sm text-white">Keep your hair fresh, healthy, and stylish with shampoos, conditioners, pomades, wax, and gels.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="relative">
+							<img src="https://images.pexels.com/photos/7697315/pexels-photo-7697315.jpeg" class="w-full h-96 object-cover rounded">
+							<div class="absolute inset-0 flex flex-col justify-end">
+								<div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
+									<div>
+										<h4 class="text-lg font-medium text-white mb-1">Beard Care</h4>
+										<p class="text-sm text-white">Oils, balms, combs, and kits for a well-groomed and nourished beard.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="relative">
+							<img src="https://images.pexels.com/photos/1319459/pexels-photo-1319459.jpeg" class="w-full h-96 object-cover rounded">
+							<div class="absolute inset-0 flex flex-col justify-end">
+								<div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
+									<div>
+										<h4 class="text-lg font-medium text-white mb-1">Shaving Essentials</h4>
+										<p class="text-sm text-white">Razors, shaving creams, and aftershaves for a smooth and comfortable shave.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-    <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
-        <div class="relative">
-            <img src="https://images.pexels.com/photos/7697717/pexels-photo-7697717.jpeg" class="w-full h-96 object-cover rounded">
-            <div class="absolute inset-0 flex flex-col justify-end">
-                <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
-                    <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Tools & Accessories</h4>
-                        <p class="text-sm text-white">Professional clippers, scissors, and brushes trusted by barbers.</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="relative">
-            <img src="https://images.pexels.com/photos/12302330/pexels-photo-12302330.jpeg" class="w-full h-96 object-cover rounded">
-            <div class="absolute inset-0 flex flex-col justify-end">
-                <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
-                    <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Wellness & Relaxation</h4>
-                        <p class="text-sm text-white">Scalp massagers, essential oils, and relaxation products for self-care.</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="relative">
-            <img src="https://raw.githubusercontent.com/lukkzzzz/Cy-Salon/refs/heads/main/damit%20ng%20gupitero%20copy.png" class="w-full h-96 object-cover rounded">
-            <div class="absolute inset-0 flex flex-col justify-end">
-                <div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
-                    <div>
-                        <h4 class="text-lg font-medium text-white mb-1">Merchandise & Apparel</h4>
-                        <p class="text-sm text-white">Barber shop branded shirts, caps, and lifestyle accessories.</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+					<div class="grid md:grid-cols-3 grid-cols-1 gap-4">
+						<div class="relative">
+							<img src="https://images.pexels.com/photos/7697717/pexels-photo-7697717.jpeg" class="w-full h-96 object-cover rounded">
+							<div class="absolute inset-0 flex flex-col justify-end">
+								<div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
+									<div>
+										<h4 class="text-lg font-medium text-white mb-1">Tools & Accessories</h4>
+										<p class="text-sm text-white">Professional clippers, scissors, and brushes trusted by barbers.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="relative">
+							<img src="https://images.pexels.com/photos/12302330/pexels-photo-12302330.jpeg" class="w-full h-96 object-cover rounded">
+							<div class="absolute inset-0 flex flex-col justify-end">
+								<div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
+									<div>
+										<h4 class="text-lg font-medium text-white mb-1">Wellness & Relaxation</h4>
+										<p class="text-sm text-white">Scalp massagers, essential oils, and relaxation products for self-care.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="relative">
+							<img src="https://raw.githubusercontent.com/lukkzzzz/Cy-Salon/refs/heads/main/damit%20ng%20gupitero%20copy.png" class="w-full h-96 object-cover rounded">
+							<div class="absolute inset-0 flex flex-col justify-end">
+								<div class="flex justify-between items-end w-full p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-b h-1/3">
+									<div>
+										<h4 class="text-lg font-medium text-white mb-1">Merchandise & Apparel</h4>
+										<p class="text-sm text-white">Barber shop branded shirts, caps, and lifestyle accessories.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div> <!-- /promos wrapper -->
+			</div> <!-- /outer wrapper -->
 		</main>
+
+		<!-- Save & redirect script -->
+		<script>
+(function () {
+  const CART_KEY = 'cart';
+
+  function parseJSON(key) {
+    try { return JSON.parse(localStorage.getItem(key) || 'null'); }
+    catch { return null; }
+  }
+
+  function loadCart() {
+    const saved = parseJSON(CART_KEY);
+    return Array.isArray(saved) ? saved : [];
+  }
+
+  function saveCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  }
+
+  function addToCart(product) {
+    const cart = loadCart();
+    const idx = cart.findIndex(i => Number(i.id) === Number(product.id));
+    if (idx > -1) {
+      // increment qty if same product exists
+      cart[idx].qty = Number(cart[idx].qty || 0) + 1;
+    } else {
+      cart.push({ ...product, qty: Number(product.qty) || 1 });
+    }
+    saveCart(cart);
+
+    // optional: keep last selected item for old pages using selectedProduct
+    localStorage.setItem('selectedProduct', JSON.stringify(product));
+
+    // optional: navigate after adding
+    // window.location.href = 'transaction.html';
+  }
+
+  function handleClick(btn) {
+    const id = Number(btn.dataset.id);
+    const name = btn.dataset.name || 'Selected Item';
+    const price = Number(btn.dataset.price) || 0;
+
+    // validate basics
+    if (Number.isNaN(id)) return console.warn('Button missing valid data-id');
+    if (Number.isNaN(price)) return console.warn('Button missing valid data-price');
+
+    addToCart({ id, name, price, qty: 1 });
+  }
+
+  // Delegate clicks to any button with the needed data attributes
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('button[data-id][data-name][data-price]');
+    if (!btn) return;
+    handleClick(btn);
+  });
+})();
+</script>
+
+
+
 		<script src="//unpkg.com/alpinejs" defer></script>
 	</body>
 </html>
