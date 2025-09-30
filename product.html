@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Product</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="stylesheet" href="fonts.css">
+	</head>
+	<body class="font-rubik bg-gray-50">
+		<header class="relative bg-[url('https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg')] bg-center bg-cover">
+			<div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
+			<nav class="relative w-full text-white p-6 md:flex block items-center justify-between" x-data="{open: false}">
+				<div class="flex items-center justify-between md:w-auto w-full">
+					<h4 class="text-xl">Cy Salon</h4>
+					<button class="border p-2 rounded md:hidden block border-gray-500" @click="open = !open" aria-label="Toggle menu">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+							<path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+						</svg>
+					</button>
+				</div>
+				<ul class="md:flex md:items-center md:space-x-4 md:mt-0 mt-4 md:space-y-0 space-y-2" :class="{'hidden': !open}">
+					<li>
+                        <a href="index.html">Home</a>
+                    </li>
+					<li>
+                        <a href="aboutUs.html">About Us</a>
+                    </li>
+					<li>
+                        <a href="services.html">Services</a>
+                    </li>
+					<li>
+                        <a href="customerService.html">Customer Care</a>
+                    </li>
+                    <li>
+                        <a href="booking.html">Book Now</a>
+                    </li>
+				</ul>
+			</nav>
+			<div class="relative py-24 text-center text-white">
+				<h1 class="text-6xl font-bold">Product</h1>
+				<p class="text-lg mt-2">Lorem ipsum dolor</p>
+			</div>
+		</header>
+		<main class="max-w-7xl mx-auto p-6 my-16">
+			<h2 class="text-4xl font-medium mb-4">Recommended</h2>
+			<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://i.pinimg.com/736x/a9/d8/54/a9d854afc173609accc243db58ac32a2.jpg" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Hair</h3>
+						<button @click="open = !open" class="flex items-center justify-between w-full text-left text-gray-700 font-medium hover:text-black">
+							<span>View Services</span>
+							<svg :class="{'rotate-180': open}" class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+							</svg>
+						</button>
+						<div x-show="open" x-transition class="mt-2 text-gray-600 space-y-1">
+							<p>- Haircut</p>
+							<p>- Haircut with Shampoo & Blowdry</p>
+							<p>- Head Shave</p>
+						</div>
+						<p class="text-lg font-bold mt-3">₱500 - ₱1200</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+					</div>
+				</div>
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://i.pinimg.com/736x/f1/1b/81/f11b81f5a3c5906716bfcdeac75a0d6d.jpg" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Hair Styling</h3>
+						<button @click="open = !open" class="flex items-center justify-between w-full text-left text-gray-700 font-medium hover:text-black">
+							<span>View Services</span>
+							<svg :class="{'rotate-180': open}" class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+							</svg>
+						</button>
+						<div x-show="open" x-transition class="mt-2 text-gray-600 space-y-1">
+							<p>- Hair Coloring</p>
+							<p>- Hair Art</p>
+							<p>- Hair Rebond</p>
+							<p>- Hair Iron/Styling</p>
+						</div>
+						<p class="text-lg font-bold mt-3">₱650 - ₱2000</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+					</div>
+				</div>
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://i.pinimg.com/736x/ae/c9/a5/aec9a5143b18bfdbd61bfb17810c3a3d.jpg" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Grooming</h3>
+						<button @click="open = !open" class="flex items-center justify-between w-full text-left text-gray-700 font-medium hover:text-black">
+							<span>View Services</span>
+							<svg :class="{'rotate-180': open}" class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+							</svg>
+						</button>
+						<div x-show="open" x-transition class="mt-2 text-gray-600 space-y-1">
+							<p>- Beard/Mustache Full Shave</p>
+							<p>- Beard/Mustache Trim</p>
+							<p>- Mustache Art</p>
+							<p>- Threading (eyebrows)</p>
+							<p>- Facial Hair Waxing</p>
+						</div>
+						<p class="text-lg font-bold mt-3">₱600 - ₱950</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+					</div>
+				</div>
+			</div>
+
+
+            <main class="max-w-7xl mx-auto p-6 my-16">
+			<h2 class=" text-4xl font-medium mb-4">Promos</h2>
+			<div class="grid md:grid-cols-3 grid-cols-1 gap-6">
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://i.pinimg.com/736x/a9/d8/54/a9d854afc173609accc243db58ac32a2.jpg" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Lorem</h3>
+						<p class="text-lg font-bold mt-3">₱500 - ₱1200</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+					</div>
+				</div>
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://i.pinimg.com/736x/f1/1b/81/f11b81f5a3c5906716bfcdeac75a0d6d.jpg" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Lorem</h3>
+						<p class="text-lg font-bold mt-3">₱650 - ₱2000</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+					</div>
+				</div>
+				<div class="bg-white rounded-lg shadow hover:shadow-lg ease duration-200 overflow-hidden" x-data="{ open: false }">
+					<img src="https://i.pinimg.com/736x/ae/c9/a5/aec9a5143b18bfdbd61bfb17810c3a3d.jpg" alt="" class="w-full h-56 object-cover">
+					<div class="p-4 space-y-2">
+						<h3 class="font-semibold text-xl">Lorem</h3>
+						<p class="text-lg font-bold mt-3">₱600 - ₱950</p>
+                        <button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+					</div>
+				</div>
+			</div>
+
+            <div class="max-w-7xl mx-auto p-6 my-16 space-y-6">
+				<div>
+					<h4 class="text-4xl font-medium">Categories</h4>
+					<p class="text-lg text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean.</p>
+				</div>
+				<div class="grid md:grid-cols-3 grid-cols-1 gap-4">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/1805600/pexels-photo-1805600.jpeg" class="w-full h-96 object-cover rounded">
+                        <div class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4">
+                            <h4 class="text-lg font-medium">Lorem</h4>
+                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+                        <button class="bg-zinc-900 text-white px-4 py-2 rounded hover:bg-zinc-700 ease duration-200 mt-4">Book Now</button>
+                        </div>
+                    </div>
+					<div>
+						<img src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg" class="w-full h-96 object-cover rounded">
+						<div class="space-y-1 mt-2">
+							<h4 class="text-lg font-medium">Lorem</h4>
+							<p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+							<button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+						</div>
+					</div>
+					<div>
+						<img src="https://images.pexels.com/photos/19762215/pexels-photo-19762215.jpeg" class="w-full h-96 object-cover rounded">
+						<div class="space-y-1 mt-2">
+							<h4 class="text-lg font-medium">Lorem</h4>
+							<p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+							<button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+						</div>
+					</div>
+				</div>
+
+                <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
+					<div>
+						<img src="https://images.pexels.com/photos/1805600/pexels-photo-1805600.jpeg" class="w-full h-96 object-cover rounded">
+						<div class="space-y-1 mt-2">
+							<h4 class="text-lg font-medium">Lorem</h4>
+							<p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+							<button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+						</div>
+					</div>
+					<div>
+						<img src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg" class="w-full h-96 object-cover rounded">
+						<div class="space-y-1 mt-2">
+							<h4 class="text-lg font-medium">Lorem</h4>
+							<p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+							<button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+						</div>
+					</div>
+					<div>
+						<img src="https://images.pexels.com/photos/19762215/pexels-photo-19762215.jpeg" class="w-full h-96 object-cover rounded">
+						<div class="space-y-1 mt-2">
+							<h4 class="text-lg font-medium">Lorem</h4>
+							<p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+							<button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+						</div>
+					</div>
+				</div>
+                <div class="grid md:grid-cols-3 grid-cols-2 gap-4">
+					<div>
+						<img src="https://images.pexels.com/photos/1805600/pexels-photo-1805600.jpeg" class="w-full h-96 object-cover rounded">
+						<div class="space-y-1 mt-2">
+							<h4 class="text-lg font-medium">Lorem</h4>
+							<p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+							<button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+						</div>
+					</div>
+					<div>
+						<img src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg" class="w-full h-96 object-cover rounded">
+						<div class="space-y-1 mt-2">
+							<h4 class="text-lg font-medium">Lorem</h4>
+							<p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+							<button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+						</div>
+					</div>
+					<div>
+						<img src="https://images.pexels.com/photos/19762215/pexels-photo-19762215.jpeg" class="w-full h-96 object-cover rounded">
+						<div class="space-y-1 mt-2">
+							<h4 class="text-lg font-medium">Lorem</h4>
+							<p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+							<button class="bg-zinc-900 text-white px-2 py-1 rounded hover:bg-zinc-700 ease duration-200">Book Now</button>
+						</div>
+					</div>
+				</div>
+			
+		</main>
+		<script src="//unpkg.com/alpinejs" defer></script>
+	</body>
+</html>
