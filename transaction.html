@@ -38,7 +38,7 @@
 				</ul>
 			</nav>
 			<div class="relative py-24 text-center text-white">
-				<h1 class="text-6xl font-bold">Checkout</h1>
+				<h1 class="text-6xl font-bold">Booking Summary</h1>
 			</div>
 		</header>
 		<main class="max-w-7xl mx-auto p-6 my-16">
@@ -61,7 +61,9 @@
 						<span>Total</span>
 						<span id="total">₱0</span>
 					</div>
-					<button class="w-full bg-black text-white py-2 rounded">Checkout</button>
+					<div class="mt-2 flex justify-center">
+						<a href="transaction.html" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full text-center"> Book Now </a>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -90,6 +92,7 @@
 					subtotal += item.price * item.qty;
 					cartDiv.innerHTML += `
           
+						
 						<div class="flex justify-between items-center py-2 border-b">
 							<div>
 								<p class="font-semibold">${item.name}</p>
